@@ -63,8 +63,7 @@ export default function BuyPage() {
       <nav className="nav">
         <div className="container nav-inner">
           <Link href="/" className="nav-logo">
-            <div className="nav-logo-mark">EP</div>
-            <div><span className="nav-logo-text">EUROPAN</span><span className="nav-logo-sub">Private Digital Currency</span></div>
+            <img src="/europan-logo.png" alt="EUROPAN" style={{ height: '36px', width: 'auto', filter: 'invert(1)' }} />
           </Link>
           <ul className="nav-links">
             <li><Link href="/#about">About</Link></li>
@@ -79,6 +78,7 @@ export default function BuyPage() {
       <div style={{ paddingTop: '68px', display: 'grid', gridTemplateColumns: '340px 1fr', minHeight: '100vh' }}>
         {/* Sidebar */}
         <div style={{ background: 'var(--green)', padding: '3rem 2.5rem', display: 'flex', flexDirection: 'column' }}>
+          <img src="/europan-logo.png" alt="EUROPAN" style={{ height: '40px', width: 'auto', marginBottom: '1rem' }} />
           <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.5)' }}>EUROPAN Exchange</span>
           <h1 style={{ fontFamily: 'var(--ff-d)', fontSize: '2.2rem', fontWeight: 700, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
             Buy<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', fontWeight: 400 }}>EUROPAN</em>
