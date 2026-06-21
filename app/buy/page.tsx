@@ -116,9 +116,39 @@ export default function BuyPage() {
             </div>
           ) : (
             <>
+              {/* Quick packages */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.75rem' }}>Schnellauswahl</label>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
+                  {[10, 25, 50, 100].map(pkg => (
+                    <button
+                      key={pkg}
+                      onClick={() => setAmount(String(pkg))}
+                      style={{
+                        padding: '0.75rem 0.5rem',
+                        border: `2px solid ${amount === String(pkg) ? 'var(--green)' : 'var(--lgray)'}`,
+                        background: amount === String(pkg) ? 'var(--green)' : '#fff',
+                        color: amount === String(pkg) ? '#fff' : 'var(--charcoal)',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        fontFamily: 'var(--ff-b)',
+                        transition: 'all 0.15s',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '2px',
+                      }}
+                    >
+                      <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.1rem', fontWeight: 700 }}>{pkg}</span>
+                      <span style={{ fontSize: '0.62rem', opacity: 0.7, letterSpacing: '0.08em' }}>EP</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {/* Amount */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.5rem' }}>Amount in EUR</label>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.5rem' }}>Oder freier Betrag in EUR</label>
                 <div style={{ display: 'flex', alignItems: 'center', border: `1.5px solid ${amount ? 'var(--green)' : 'var(--lgray)'}`, background: '#fff', borderRadius: '6px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
                   <span style={{ padding: '0 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '1.4rem', color: 'var(--muted)', borderRight: '1px solid var(--lgray)' }}>€</span>
                   <input type="number" min="1" max="100000" step="1" placeholder="0" value={amount} onChange={e => setAmount(e.target.value)} style={{ flex: 1, border: 'none', padding: '1rem 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '2rem', color: 'var(--charcoal)', background: 'transparent', outline: 'none', fontWeight: 400 }} />
