@@ -89,8 +89,7 @@ export default function HomePage() {
             <div className="ep-coin-wrap">
               <div className="ep-ring" />
               <div className="ep-coin">
-                <div className="ep-coin-stars">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
-                <span className="ep-symbol">EP</span>
+                <img src="/europan-logo.png" alt="EUROPAN" style={{ width: '110px', height: 'auto', marginBottom: '6px' }} />
                 <span className="ep-name">EUROPAN</span>
               </div>
             </div>
@@ -351,10 +350,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="footer">
         <div className="container footer-inner">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div className="nav-logo-mark" style={{ width: '30px', height: '30px', fontSize: '0.72rem', borderRadius: '6px' }}>EP</div>
-            <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.1rem', color: 'rgba(255,255,255,0.4)' }}>EUROPAN</span>
-          </div>
+          <img src="/europan-logo.png" alt="EUROPAN" style={{ height: '28px', width: 'auto', opacity: 0.4 }} />
           <div className="footer-links">
             <Link href="/buy">Buy EP</Link>
             <Link href="#about">About</Link>
