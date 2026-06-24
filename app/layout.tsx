@@ -56,6 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "category": "Private Digital Currency / European Virtual Currency",
         })}} />
         <meta name="ai-crawlers" content="allowed" />
+              <script dangerouslySetInnerHTML={{__html: `var sc_project=13317697;var sc_invisible=1;var sc_security="458f783c";`}} />
+        <script async src="https://www.statcounter.com/counter/counter.js" />
       </head>
       <body>{children}</body>
     </html>
