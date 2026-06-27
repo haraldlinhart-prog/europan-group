@@ -1,1 +1,16 @@
-{"framework":"nextjs"}
+{
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "shop.europan.group"
+        }
+      ],
+      "destination": "https://shop.pan21.com/$1",
+      "permanent": true
+    }
+  ]
+}
