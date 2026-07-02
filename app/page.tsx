@@ -52,6 +52,7 @@ export default function HomePage() {
           <ul className="nav-links">
             <li><Link href="#about">About</Link></li>
             <li><Link href="#shop">Shop Bonus</Link></li>
+            <li><Link href="/merchants">For Merchants</Link></li>
             <li><Link href="#how">How It Works</Link></li>
             <li><Link href="#contact">Contact</Link></li>
             <li><Link href="/buy">Buy EP</Link></li>
@@ -355,6 +356,7 @@ export default function HomePage() {
             <Link href="/buy">Buy EP</Link>
             <Link href="#about">About</Link>
             <Link href="#shop">Shop Bonus</Link>
+            <Link href="/merchants">For Merchants</Link>
             <Link href="#how">How It Works</Link>
             <Link href="#contact">Contact</Link>
             <a href="https://noble-limited.com" target="_blank" rel="noopener">Noble Limited</a>
