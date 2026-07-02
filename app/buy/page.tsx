@@ -23,7 +23,9 @@ export default function BuyPage() {
   const [wireSubmitted, setWireSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [rate] = useState(EP_RATE)
+  const [currency, setCurrency] = useState('EUR')
+  const [rate, setRate] = useState(EP_RATE)
+  const [rateLoading, setRateLoading] = useState(false)
 
   useEffect(() => {
     const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
@@ -31,12 +33,22 @@ export default function BuyPage() {
   }, [])
 
   useEffect(() => {
-    const eur = parseFloat(amount) || 0
-    setEpAmount(eur / rate)
-    if (eur > 0 && eur <= CARD_LIMIT) setMode('card')
-    else if (eur > CARD_LIMIT) setMode('wire')
+    setRateLoading(true)
+    fetch(`/api/fx-rate?currency=${currency}`)
+      .then(r => r.json())
+      .then(d => { if (d.applied_rate) setRate(d.applied_rate) })
+      .catch(() => {})
+      .finally(() => setRateLoading(false))
+  }, [currency])
+
+  useEffect(() => {
+    const inputAmt = parseFloat(amount) || 0
+    const eurEquivalent = inputAmt * rate
+    setEpAmount(eurEquivalent)
+    if (inputAmt > 0 && eurEquivalent <= CARD_LIMIT) setMode('card')
+    else if (eurEquivalent > CARD_LIMIT) { setMode('wire'); if (currency !== 'EUR') setCurrency('EUR') }
     else setMode(null)
-  }, [amount])
+  }, [amount, rate])
 
   const isEn = () => typeof document !== 'undefined' && document.documentElement.classList.contains('en')
 
@@ -45,7 +57,7 @@ export default function BuyPage() {
     if (!email || !amount) return setError(isEn() ? 'Please enter email and amount.' : 'Bitte E-Mail und Betrag eingeben.')
     setLoading(true); setError('')
     try {
-      const res = await fetch('/api/checkout', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ amount: parseFloat(amount), email }) })
+      const res = await fetch('/api/checkout', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ amount: parseFloat(amount), email, currency }) })
       const data = await res.json()
       if (data.url) window.location.href = data.url
       else setError(data.error || (isEn() ? 'Error.' : 'Fehler.'))
@@ -98,7 +110,7 @@ export default function BuyPage() {
           <div style={{ height: '2px', background: 'rgba(255,255,255,0.2)', margin: '1.5rem 0' }} />
           <div style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '1.25rem 1.5rem', borderRadius: '6px' }}>
             <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', display: 'block', marginBottom: '4px' }}><span className="de-content">Aktueller Kurs</span><span className="en-content">Current Rate</span></span>
-            <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>€{rate.toFixed(2)} = 1 EP</span>
+            <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>€1.00 = 1 EP</span>
           </div>
           <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
@@ -132,6 +144,25 @@ export default function BuyPage() {
             </div>
           ) : (
             <>
+              {/* Currency selector */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.75rem' }}><span className="de-content">Zahlungswährung</span><span className="en-content">Payment Currency</span></label>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  {['EUR', 'GBP', 'USD'].map(c => (
+                    <button key={c} onClick={() => setCurrency(c)}
+                      style={{ padding: '0.5rem 1rem', border: `2px solid ${currency === c ? 'var(--green)' : 'var(--lgray)'}`, background: currency === c ? 'var(--green)' : '#fff', color: currency === c ? '#fff' : 'var(--charcoal)', borderRadius: '6px', cursor: 'pointer', fontFamily: 'var(--ff-b)', fontWeight: 700, fontSize: '0.85rem' }}>
+                      {c}
+                    </button>
+                  ))}
+                </div>
+                {currency !== 'EUR' && (
+                  <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.5rem' }}>
+                    <span className="de-content">Wechselkurs inkl. Marge — {rateLoading ? 'wird geladen…' : `1 ${currency} = ${rate.toFixed(4)} EP`}</span>
+                    <span className="en-content">Exchange rate incl. margin — {rateLoading ? 'loading…' : `1 ${currency} = ${rate.toFixed(4)} EP`}</span>
+                  </p>
+                )}
+              </div>
+
               {/* Quick packages */}
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.75rem' }}><span className="de-content">Schnellauswahl</span><span className="en-content">Quick Select</span></label>
@@ -156,7 +187,7 @@ export default function BuyPage() {
                       }}
                     >
                       <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.1rem', fontWeight: 700 }}>{pkg}</span>
-                      <span style={{ fontSize: '0.62rem', opacity: 0.7, letterSpacing: '0.08em' }}>EP</span>
+                      <span style={{ fontSize: '0.62rem', opacity: 0.7, letterSpacing: '0.08em' }}>{currency}</span>
                     </button>
                   ))}
                 </div>
@@ -164,23 +195,24 @@ export default function BuyPage() {
 
               {/* Amount */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.5rem' }}><span className="de-content">Oder freier Betrag in EUR</span><span className="en-content">Or enter a custom amount in EUR</span></label>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.5rem' }}>
+                  <span className="de-content">Oder freier Betrag in {currency}</span><span className="en-content">Or enter a custom amount in {currency}</span>
+                </label>
                 <div style={{ display: 'flex', alignItems: 'center', border: `1.5px solid ${amount ? 'var(--green)' : 'var(--lgray)'}`, background: '#fff', borderRadius: '6px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
-                  <span style={{ padding: '0 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '1.4rem', color: 'var(--muted)', borderRight: '1px solid var(--lgray)' }}>€</span>
+                  <span style={{ padding: '0 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '1.4rem', color: 'var(--muted)', borderRight: '1px solid var(--lgray)' }}>{currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}</span>
                   <input type="number" min="1" max="100000" step="1" placeholder="0" value={amount} onChange={e => setAmount(e.target.value)} style={{ flex: 1, border: 'none', padding: '1rem 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '2rem', color: 'var(--charcoal)', background: 'transparent', outline: 'none', fontWeight: 400 }} />
                 </div>
                 {parseFloat(amount) > 0 && (
                   <div style={{ marginTop: '0.6rem', fontSize: '0.9rem', color: 'var(--gray)' }}>
                     <span className="de-content">Sie erhalten: </span><span className="en-content">You receive: </span>
                     <strong style={{ color: 'var(--green)' }}>{epAmount.toFixed(2)} EP</strong>
-                    <span style={{ marginLeft: '0.5rem', fontSize: '0.75rem', color: 'var(--muted)' }}>@ €{rate.toFixed(2)}/EP</span>
                   </div>
                 )}
                 {mode && (
                   <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', padding: '0.6rem 0.9rem', borderRadius: '4px', background: mode === 'card' ? 'rgba(27,107,58,0.07)' : 'rgba(30,40,32,0.05)', color: mode === 'card' ? 'var(--green2)' : 'var(--charcoal)', border: `1px solid ${mode === 'card' ? 'rgba(27,107,58,0.2)' : 'var(--lgray)'}` }}>
                     {mode === 'card'
                       ? <><span className="de-content">💳 Kreditkartenzahlung · sofortige Gutschrift</span><span className="en-content">💳 Credit card payment · instant delivery</span></>
-                      : <><span className="de-content">🏦 Für Beträge über 1.000 € ist eine Überweisung erforderlich</span><span className="en-content">🏦 Bank transfer required for amounts above €1,000</span></>}
+                      : <><span className="de-content">🏦 Für Beträge über 1.000 € ist eine Überweisung erforderlich (nur in EUR)</span><span className="en-content">🏦 Bank transfer required for amounts above €1,000 (EUR only)</span></>}
                   </div>
                 )}
               </div>
