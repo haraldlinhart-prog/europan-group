@@ -21,7 +21,7 @@ export default function MerchantsPage() {
       <nav className="nav">
         <div className="container nav-inner">
           <Link href="/" className="nav-logo">
-            <div className="nav-logo-mark">EP</div>
+            <div className="nav-logo-mark"><img src="/europan-logo-header.png" alt="EP" style={{ width: "22px", height: "auto" }} /></div>
             <div>
               <span className="nav-logo-text">EUROPAN</span>
               <span className="nav-logo-sub"><span className="de-content">Private Digitalwährung</span><span className="en-content">Private Digital Currency</span></span>
