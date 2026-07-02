@@ -26,6 +26,8 @@ export default function BuyPage() {
   const [currency, setCurrency] = useState('EUR')
   const [rate, setRate] = useState(EP_RATE)
   const [rateLoading, setRateLoading] = useState(false)
+  const [website, setWebsite] = useState('') // Honeypot
+  const [formstart] = useState(() => Date.now())
 
   useEffect(() => {
     const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
@@ -67,10 +69,11 @@ export default function BuyPage() {
 
   async function handleWire(e: React.FormEvent) {
     e.preventDefault()
+    if (website) return // Bot hat das Honeypot-Feld ausgefüllt
     if (!email || !amount || !wireName) return setError(isEn() ? 'Please fill in all fields.' : 'Bitte alle Felder ausfüllen.')
     setLoading(true); setError('')
     try {
-      const res = await fetch('/api/wire', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: wireName, email, amount: parseFloat(amount), epAmount }) })
+      const res = await fetch('/api/wire', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: wireName, email, amount: parseFloat(amount), epAmount, website, elapsed: Date.now() - formstart }) })
       if (res.ok) setWireSubmitted(true)
       else setError(isEn() ? 'Error. Please contact us directly by email.' : 'Fehler. Bitte direkt per E-Mail kontaktieren.')
     } catch { setError(isEn() ? 'Network error.' : 'Netzwerkfehler.') }
@@ -268,6 +271,10 @@ export default function BuyPage() {
               {/* Wire form */}
               {mode === 'wire' && (
                 <form onSubmit={handleWire} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+                    <label htmlFor="wire-website">Website</label>
+                    <input id="wire-website" name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
+                  </div>
                   <h3 style={{ fontFamily: 'var(--ff-d)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--charcoal)' }}><span className="de-content">Banküberweisung</span><span className="en-content">Bank Transfer</span></h3>
                   <div style={{ background: 'var(--white)', border: '1px solid var(--lgray)', borderLeft: '3px solid var(--green)', padding: '1.25rem 1.5rem', borderRadius: '0 6px 6px 0' }}>
                     <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '0.75rem' }}><span className="de-content">Bankverbindung</span><span className="en-content">Bank Details</span></div>
