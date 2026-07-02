@@ -112,8 +112,8 @@ export default function BuyPage() {
           </div>
           <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
             <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)', lineHeight: 1.7 }}>
-              <span className="de-content">EUROPAN ist eine private Netzwerkwährung, herausgegeben von Noble Limited, eingetragen in England & Wales. Kein reguliertes Finanzinstrument.</span>
-              <span className="en-content">EUROPAN is a private network currency issued by Noble Limited, registered in England &amp; Wales. Not a regulated financial instrument.</span>
+              <span className="de-content">EUROPAN ist eine private Netzwerkwährung, herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited"), eingetragen in Neuseeland. Kein reguliertes Finanzinstrument.</span>
+              <span className="en-content">EUROPAN is a private network currency issued by Noble Private Capital Ltd (trading as "Noble Limited"), registered in New Zealand. Not a regulated financial instrument.</span>
             </p>
           </div>
         </div>

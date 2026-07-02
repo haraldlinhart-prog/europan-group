@@ -60,7 +60,7 @@ export default function HomePage() {
   ]
 
   const trustCards = [
-    { title_de: 'Herausgegeben von Noble Limited', title_en: 'Issued by Noble Limited', text_de: 'EUROPAN wird von Noble Limited herausgegeben und verwaltet, eingetragen in England und Wales. Alle Guthaben, Transaktionen und Gutschriften laufen über die Noble-Plattform.', text_en: 'EUROPAN is issued and managed by Noble Limited, registered in England and Wales. All balances, transactions and credits are handled through the Noble platform.' },
+    { title_de: 'Herausgegeben von Noble Limited', title_en: 'Issued by Noble Limited', text_de: 'EUROPAN wird von Noble Private Capital Ltd (handelnd als „Noble Limited") herausgegeben und verwaltet, eingetragen in Neuseeland. Alle Guthaben, Transaktionen und Gutschriften laufen über die Noble-Plattform.', text_en: 'EUROPAN is issued and managed by Noble Private Capital Ltd (trading as "Noble Limited"), registered in New Zealand. All balances, transactions and credits are handled through the Noble platform.' },
     { title_de: 'Fester Kurs 1:1 — 1,00 € = 1 EP', title_en: 'Fixed 1:1 Rate — €1.00 = 1 EP', text_de: 'Keine Spekulation, keine Kursschwankungen, keine Gas Fees. EUROPAN ist fest an 1,00 € gebunden. Eine stabile private Währung für stabilen privaten Wert.', text_en: 'No speculation, no volatility, no gas fees. EUROPAN is pegged at €1.00. A stable private currency for stable private value.' },
     { title_de: 'Nicht öffentlich gehandelt', title_en: 'Not Publicly Traded', text_de: 'EUROPAN ist an keiner Börse notiert. Seine Stabilität ergibt sich gerade aus dem geschlossenen Netzwerkcharakter — verfügbar nur für Noble-Mitglieder.', text_en: 'EUROPAN is not listed on any exchange. Its stability comes precisely from its closed-network character — available only to Noble members.' },
     { title_de: 'Zahlungen abgesichert über Stripe', title_en: 'Stripe-Secured Payments', text_de: 'Kartenkäufe laufen über Stripe, PCI-DSS-konform. Ihre Kartendaten werden niemals auf unseren Servern gespeichert.', text_en: 'Card purchases use Stripe, PCI-DSS compliant. Your card data is never stored on our servers.' },
@@ -376,7 +376,7 @@ export default function HomePage() {
             <a href="https://shop.pan21.com" target="_blank" rel="noopener">PAN21 Shop</a>
           </div>
           <p className="footer-legal">
-            © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Limited · Eingetragen in England &amp; Wales · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Limited · Registered in England &amp; Wales · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
+            © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited") · Eingetragen in Neuseeland · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Private Capital Ltd (trading as "Noble Limited") · Registered in New Zealand · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
           </p>
         </div>
       </footer>

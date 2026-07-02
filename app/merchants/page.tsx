@@ -118,7 +118,7 @@ export default function MerchantsPage() {
             <a href="https://shop.pan21.com" target="_blank" rel="noopener">PAN21 Shop</a>
           </div>
           <p className="footer-legal">
-            © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Limited · Eingetragen in England &amp; Wales · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Limited · Registered in England &amp; Wales · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
+            © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited") · Eingetragen in Neuseeland · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Private Capital Ltd (trading as "Noble Limited") · Registered in New Zealand · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
           </p>
         </div>
       </footer>
