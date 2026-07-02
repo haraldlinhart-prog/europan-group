@@ -108,6 +108,7 @@ export default function BuyPage() {
             <span className="en-content">Buy<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', fontWeight: 400 }}>EUROPAN</em></span>
           </h1>
           <div style={{ height: '2px', background: 'rgba(255,255,255,0.2)', margin: '1.5rem 0' }} />
+          <img src="/vouchers/europan-service.png" alt="EUROPAN Guthaben" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '1.5rem' }} />
           <div style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '1.25rem 1.5rem', borderRadius: '6px' }}>
             <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', display: 'block', marginBottom: '4px' }}><span className="de-content">Aktueller Kurs</span><span className="en-content">Current Rate</span></span>
             <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>€1.00 = 1 EP</span>
@@ -166,31 +167,54 @@ export default function BuyPage() {
               {/* Quick packages */}
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.75rem' }}><span className="de-content">Schnellauswahl</span><span className="en-content">Quick Select</span></label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
-                  {[10, 25, 50, 100].map(pkg => (
-                    <button
-                      key={pkg}
-                      onClick={() => setAmount(String(pkg))}
-                      style={{
-                        padding: '0.75rem 0.5rem',
-                        border: `2px solid ${amount === String(pkg) ? 'var(--green)' : 'var(--lgray)'}`,
-                        background: amount === String(pkg) ? 'var(--green)' : '#fff',
-                        color: amount === String(pkg) ? '#fff' : 'var(--charcoal)',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        fontFamily: 'var(--ff-b)',
-                        transition: 'all 0.15s',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: '2px',
-                      }}
-                    >
-                      <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.1rem', fontWeight: 700 }}>{pkg}</span>
-                      <span style={{ fontSize: '0.62rem', opacity: 0.7, letterSpacing: '0.08em' }}>{currency}</span>
-                    </button>
-                  ))}
-                </div>
+                {currency === 'EUR' ? (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.6rem' }}>
+                    {[10, 25, 50, 100].map(pkg => (
+                      <button
+                        key={pkg}
+                        onClick={() => setAmount(String(pkg))}
+                        style={{
+                          padding: 0,
+                          border: `2px solid ${amount === String(pkg) ? 'var(--green)' : 'var(--lgray)'}`,
+                          background: '#fff',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          overflow: 'hidden',
+                          transition: 'all 0.15s',
+                          lineHeight: 0,
+                        }}
+                      >
+                        <img src={`/vouchers/europan${pkg}.png`} alt={`EUROPAN ${pkg} EUR`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
+                    {[10, 25, 50, 100].map(pkg => (
+                      <button
+                        key={pkg}
+                        onClick={() => setAmount(String(pkg))}
+                        style={{
+                          padding: '0.75rem 0.5rem',
+                          border: `2px solid ${amount === String(pkg) ? 'var(--green)' : 'var(--lgray)'}`,
+                          background: amount === String(pkg) ? 'var(--green)' : '#fff',
+                          color: amount === String(pkg) ? '#fff' : 'var(--charcoal)',
+                          borderRadius: '6px',
+                          cursor: 'pointer',
+                          fontFamily: 'var(--ff-b)',
+                          transition: 'all 0.15s',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          gap: '2px',
+                        }}
+                      >
+                        <span style={{ fontFamily: 'var(--ff-d)', fontSize: '1.1rem', fontWeight: 700 }}>{pkg}</span>
+                        <span style={{ fontSize: '0.62rem', opacity: 0.7, letterSpacing: '0.08em' }}>{currency}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Amount */}
