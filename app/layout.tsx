@@ -34,8 +34,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem('europan_lang')==='en')document.documentElement.classList.add('en');}catch(e){}
+window.setLang=function(l){
+  document.documentElement.classList.toggle('en', l==='en');
+  try{localStorage.setItem('europan_lang', l);}catch(e){}
+  document.querySelectorAll('[data-lang-btn]').forEach(function(b){b.classList.toggle('active', b.getAttribute('data-lang-btn')===l);});
+};` }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
