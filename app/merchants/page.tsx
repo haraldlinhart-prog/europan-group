@@ -19,7 +19,7 @@ export default function MerchantsPage() {
     <div>
       {/* Nav */}
       <nav className="nav">
-        <div className="container nav-inner">
+        <div className="nav-inner">
           <Link href="/" className="nav-logo">
             <img src="/europan-logo-header.png" alt="EUROPAN" style={{ height: "30px", width: "auto", filter: "invert(1)" }} />
           </Link>

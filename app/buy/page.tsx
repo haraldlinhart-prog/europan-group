@@ -83,7 +83,7 @@ export default function BuyPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--snow)' }}>
       <nav className="nav">
-        <div className="container nav-inner">
+        <div className="nav-inner">
           <Link href="/" className="nav-logo">
             <img src="/europan-logo.png" alt="EUROPAN" style={{ height: '36px', width: 'auto', filter: 'invert(1)' }} />
           </Link>

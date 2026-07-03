@@ -41,9 +41,9 @@ button { cursor: pointer; font-family: var(--ff-b); }
 
 /* Nav */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); height: 68px; border-bottom: 1px solid var(--lgray); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; max-width: 1440px; margin: 0 auto; padding: 0 2.5rem; }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 3rem; list-style: none; }
 .nav-links a { font-size: 0.78rem; font-weight: 500; color: var(--gray); transition: color 0.2s; }
 .nav-links a:hover { color: var(--green); }
 .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
