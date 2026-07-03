@@ -82,6 +82,7 @@ export default function HomePage() {
             <li><a href="https://europan.direct" target="_blank" rel="noopener"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></a></li>
             <li><Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link></li>
             <li><Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link></li>
+            <li><Link href="/de/internet-stadt">Internet-Stadt</Link></li>
             <li><Link href="/faq">FAQ</Link></li>
           </ul>
           <div className="nav-actions">
