@@ -87,6 +87,7 @@ export default function HomePage() {
             <li><Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link></li>
             <li><Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link></li>
             <li><Link href="/buy"><span className="de-content">EP kaufen</span><span className="en-content">Buy EP</span></Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
           </ul>
           <div className="nav-actions">
             <div className="lang-switch">
@@ -372,6 +373,7 @@ export default function HomePage() {
             <Link href="/merchants"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></Link>
             <Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link>
             <Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link>
+            <Link href="/faq">FAQ</Link>
             <a href="https://noble-limited.com" target="_blank" rel="noopener">Noble Limited</a>
             <a href="https://shop.pan21.com" target="_blank" rel="noopener">PAN21 Shop</a>
           </div>

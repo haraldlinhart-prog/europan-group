@@ -251,7 +251,7 @@ export default function BuyPage() {
                   <div className="fg">
                     <label><span className="de-content">Ihre E-Mail-Adresse *</span><span className="en-content">Your Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet und ist jederzeit abrufbar.</span><span className="en-content">Your EUROPAN balance will be linked to this email address and available any time.</span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet und ist jederzeit abrufbar. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your EUROPAN balance will be linked to this email address and available any time. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
                   </div>
                   <div style={{ background: 'var(--white)', border: '1px solid var(--lgray)', padding: '1rem', borderRadius: '4px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: '0.82rem', borderBottom: '1px solid var(--lgray)' }}><span style={{ color: 'var(--gray)' }}><span className="de-content">Betrag</span><span className="en-content">Amount</span></span><strong>€{parseFloat(amount||'0').toFixed(2)}</strong></div>
@@ -288,7 +288,7 @@ export default function BuyPage() {
                   <div className="fg">
                     <label><span className="de-content">E-Mail-Adresse *</span><span className="en-content">Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet, sobald der Betrag eingegangen ist.</span><span className="en-content">Your EUROPAN balance will be linked to this email address once the payment is received.</span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet, sobald der Betrag eingegangen ist. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your EUROPAN balance will be linked to this email address once the payment is received. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
                   </div>
                   {error && <p className="form-err">{error}</p>}
                   <button type="submit" className="btn-green-lg" disabled={loading} style={{ width: '100%' }}>
