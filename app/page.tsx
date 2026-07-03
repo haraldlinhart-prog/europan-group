@@ -79,7 +79,7 @@ export default function HomePage() {
           <ul className="nav-links">
             <li><Link href="#about"><span className="de-content">Über uns</span><span className="en-content">About</span></Link></li>
             <li><Link href="#shop"><span className="de-content">Shop-Bonus</span><span className="en-content">Shop Bonus</span></Link></li>
-            <li><Link href="/merchants"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></Link></li>
+            <li><a href="https://europan.direct" target="_blank" rel="noopener"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></a></li>
             <li><Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link></li>
             <li><Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link></li>
             <li><Link href="/faq">FAQ</Link></li>
@@ -364,7 +364,7 @@ export default function HomePage() {
             <Link href="/buy"><span className="de-content">EP kaufen</span><span className="en-content">Buy EP</span></Link>
             <Link href="#about"><span className="de-content">Über uns</span><span className="en-content">About</span></Link>
             <Link href="#shop"><span className="de-content">Shop-Bonus</span><span className="en-content">Shop Bonus</span></Link>
-            <Link href="/merchants"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></Link>
+            <a href="https://europan.direct" target="_blank" rel="noopener"><span className="de-content">Für Händler</span><span className="en-content">For Merchants</span></a>
             <Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link>
             <Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link>
             <Link href="/faq">FAQ</Link>
