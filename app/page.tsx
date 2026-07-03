@@ -86,12 +86,11 @@ export default function HomePage() {
             <li><Link href="/faq">FAQ</Link></li>
           </ul>
           <div className="nav-actions">
+            <Link href="/buy" className="btn-green"><span className="de-content">EUROPAN kaufen</span><span className="en-content">Buy EUROPAN</span></Link>
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
             </div>
-            <a href="https://noble-limited.com" target="_blank" rel="noopener" className="nav-noble-link">Noble Limited ↗</a>
-            <Link href="/buy" className="btn-green"><span className="de-content">EUROPAN kaufen</span><span className="en-content">Buy EUROPAN</span></Link>
           </div>
         </div>
       </nav>

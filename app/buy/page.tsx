@@ -96,7 +96,6 @@ export default function BuyPage() {
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
             </div>
-            <a href="https://noble-limited.com" target="_blank" rel="noopener" className="nav-noble-link">Noble Limited ↗</a>
           </div>
         </div>
       </nav>
