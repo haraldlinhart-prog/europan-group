@@ -293,7 +293,7 @@ export default function HomePage() {
             <span className="en-content">Noble members hold EUROPAN, N-Coin, SwissyCash and CryptoCoin in a single dashboard.</span>
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://noble-limited.com/join" target="_blank" rel="noopener" className="btn-green"><span className="de-content">Noble-Mitgliedschaft beantragen →</span><span className="en-content">Apply for Noble Membership →</span></a>
+            <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" className="btn-green"><span className="de-content">Noble-Mitgliedschaft beantragen →</span><span className="en-content">Apply for Noble Membership →</span></a>
             <a href="https://n-coins.net" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>N-Coin ↗</a>
             <a href="https://swissycash.com" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>SwissyCash ↗</a>
             <a href="https://crypto-coins.org" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>CryptoCoin ↗</a>
