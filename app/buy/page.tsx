@@ -249,9 +249,9 @@ export default function BuyPage() {
                 <form onSubmit={handleCard} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <h3 style={{ fontFamily: 'var(--ff-d)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--charcoal)' }}><span className="de-content">Kreditkartenzahlung</span><span className="en-content">Credit Card Payment</span></h3>
                   <div className="fg">
-                    <label><span className="de-content">Ihre Noble-Konto-E-Mail *</span><span className="en-content">Your Noble Account Email *</span></label>
+                    <label><span className="de-content">Ihre E-Mail-Adresse *</span><span className="en-content">Your Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">EP wird diesem Noble-Konto gutgeschrieben.</span><span className="en-content">EP will be credited to this Noble account.</span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet und ist jederzeit abrufbar.</span><span className="en-content">Your EUROPAN balance will be linked to this email address and available any time.</span></p>
                   </div>
                   <div style={{ background: 'var(--white)', border: '1px solid var(--lgray)', padding: '1rem', borderRadius: '4px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: '0.82rem', borderBottom: '1px solid var(--lgray)' }}><span style={{ color: 'var(--gray)' }}><span className="de-content">Betrag</span><span className="en-content">Amount</span></span><strong>€{parseFloat(amount||'0').toFixed(2)}</strong></div>
@@ -286,9 +286,9 @@ export default function BuyPage() {
                   </div>
                   <div className="fg"><label><span className="de-content">Vollständiger Name *</span><span className="en-content">Full Name *</span></label><input type="text" required placeholder="Wie auf Ihrem Bankkonto" value={wireName} onChange={e => setWireName(e.target.value)} /></div>
                   <div className="fg">
-                    <label><span className="de-content">Noble-Konto-E-Mail *</span><span className="en-content">Noble Account Email *</span></label>
+                    <label><span className="de-content">E-Mail-Adresse *</span><span className="en-content">Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">EP wird diesem Noble-Konto gutgeschrieben, sobald der Betrag eingegangen ist.</span><span className="en-content">EP credited to this Noble account after funds received.</span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet, sobald der Betrag eingegangen ist.</span><span className="en-content">Your EUROPAN balance will be linked to this email address once the payment is received.</span></p>
                   </div>
                   {error && <p className="form-err">{error}</p>}
                   <button type="submit" className="btn-green-lg" disabled={loading} style={{ width: '100%' }}>

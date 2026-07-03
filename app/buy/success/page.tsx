@@ -22,8 +22,8 @@ function SuccessContent() {
           <span className="de-content">Zahlung erfolgreich</span><span className="en-content">Payment Successful</span>
         </div>
         <p style={{ color: 'var(--gray)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-          <span className="de-content">Ihr Guthaben von <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> wurde Ihrem Noble-Konto{email && <> ({email})</>} gutgeschrieben.</span>
-          <span className="en-content">Your balance of <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> has been credited to your Noble account{email && <> at <strong>{email}</strong></>}.</span>
+          <span className="de-content">Ihr Guthaben von <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> wurde{email && <> unter {email}</>} gutgeschrieben.</span>
+          <span className="en-content">Your balance of <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> has been credited{email && <> under {email}</>}.</span>
         </p>
         <p style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.75, marginBottom: '2.5rem' }}>
           <span className="de-content">Setzen Sie Ihr EUROPAN auf shop.pan21.com für den Doppel-Wums-Bonus ein — 5 % zurück bei jedem mit EP bezahlten Kauf.</span>
