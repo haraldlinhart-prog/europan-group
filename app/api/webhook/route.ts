@@ -1,13 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import Stripe from 'stripe'
 
 export async function POST(req: NextRequest) {
   const body = await req.text()
-  let event: any
-  try { event = JSON.parse(body) } catch { return NextResponse.json({ error: 'Invalid' }, { status: 400 }) }
+
+  // Verify this request genuinely came from Stripe before trusting anything in it.
+  // WITHOUT this check (as the code did until now), anyone who knew this URL could
+  // POST a fake "checkout.session.completed" event with any email + any ep_amount
+  // and get real EUROPAN credited for free — this endpoint has no other
+  // authentication at all, so signature verification IS the entire security
+  // boundary here, not an optional hardening step.
+  const signature = req.headers.get('stripe-signature')
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
+
+  if (!signature || !webhookSecret) {
+    console.error('Webhook rejected: missing signature header or STRIPE_WEBHOOK_SECRET not configured.')
+    return NextResponse.json({ error: 'Webhook not configured' }, { status: 500 })
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', { apiVersion: '2024-06-20' })
+
+  let event: Stripe.Event
+  try {
+    event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
+  } catch (err: any) {
+    console.error('Webhook signature verification failed:', err.message)
+    return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
+  }
 
   if (event.type === 'checkout.session.completed') {
-    const s = event.data.object
+    const s = event.data.object as Stripe.Checkout.Session
     const email = s.metadata?.noble_email
     const ep = parseFloat(s.metadata?.ep_amount || '0')
 
