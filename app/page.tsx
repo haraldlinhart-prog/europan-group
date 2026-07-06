@@ -68,7 +68,10 @@ export default function HomePage() {
     { title_de: 'API-gestützte Guthaben', title_en: 'API-Backed Balances', text_de: 'Jedes EP-Guthaben wird in der Noble-Limited-Plattform geführt, 24/7 über Ihr sicheres Mitglieder-Dashboard einsehbar. Vollständig nachvollziehbar.', text_en: 'Every EP balance is maintained in the Noble Limited platform, accessible 24/7 via your secure member dashboard. Fully auditable.' },
   ]
 
-  return (
+  {/* <!-- REVIVE:START --> */}
+<div dangerouslySetInnerHTML={{__html: "<div style=\"display:flex;justify-content:center;margin:16px 0;\">\n<ins data-revive-zoneid=\"6\" data-revive-id=\"0b01ba1194fdc0e89c6321458dbc5814\"></ins>\n<script async src=\"//ads.pan21.com/www/delivery/asyncjs.php\"></script>\n</div>"}} />
+{/* <!-- REVIVE:END --> */}
+return (
     <div>
       {/* Nav */}
       <nav className="nav">
