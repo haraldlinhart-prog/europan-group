@@ -241,25 +241,25 @@ return (
       {/* How it works */}
       <section className="section how-sec" id="how">
         <div className="container">
-          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '4rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="eyebrow"><span className="de-content">So kaufen Sie</span><span className="en-content">How to Buy</span></span>
+            <h2 className="sec-title"><span className="de-content">Einfach. <em>Europäisch. Privat.</em></span><span className="en-content">Simple. <em>European. Private.</em></span></h2>
+          </div>
+          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <div style={{ flex: '0 1 320px', minWidth: '220px' }}>
               <img src="/images/how-it-works.jpg" alt="Bargeld in Jeans-Tasche" style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block', boxShadow: '0 8px 30px rgba(0,0,0,0.15)' }} />
             </div>
-            <div style={{ flex: '1 1 420px', minWidth: '280px', textAlign: 'center' }}>
-              <span className="eyebrow"><span className="de-content">So kaufen Sie</span><span className="en-content">How to Buy</span></span>
-              <h2 className="sec-title"><span className="de-content">Einfach. <em>Europäisch. Privat.</em></span><span className="en-content">Simple. <em>European. Private.</em></span></h2>
-            </div>
-          </div>
-          <div className="how-steps">
-            {howSteps.map((s, i) => (
-              <div key={i} className="how-step">
-                <div className="how-num">{String(i+1).padStart(2,'0')}</div>
-                <div>
-                  <h3 className="how-title"><span className="de-content">{s.title_de}</span><span className="en-content">{s.title_en}</span></h3>
-                  <p className="how-desc"><span className="de-content">{s.desc_de}</span><span className="en-content">{s.desc_en}</span></p>
+            <div className="how-steps" style={{ flex: '1 1 420px', minWidth: '280px' }}>
+              {howSteps.map((s, i) => (
+                <div key={i} className="how-step">
+                  <div className="how-num">{String(i+1).padStart(2,'0')}</div>
+                  <div>
+                    <h3 className="how-title"><span className="de-content">{s.title_de}</span><span className="en-content">{s.title_en}</span></h3>
+                    <p className="how-desc"><span className="de-content">{s.desc_de}</span><span className="en-content">{s.desc_en}</span></p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '4rem' }}>
             <Link href="/buy" className="btn-green-lg"><span className="de-content">Jetzt EUROPAN kaufen →</span><span className="en-content">Buy EUROPAN Now →</span></Link>
