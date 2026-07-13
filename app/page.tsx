@@ -342,6 +342,7 @@ return (
                 <p style={{ color: 'var(--gray)', fontSize: '0.875rem' }}><span className="de-content">Wir antworten innerhalb eines Werktags.</span><span className="en-content">We will respond within one business day.</span></p>
               </div>
             ) : (
+              <>
               <form onSubmit={handleContact} noValidate>
                 <div className="hp-field"><input type="text" name="website" tabIndex={-1} autoComplete="off" /></div>
                 <div className="form-row">
@@ -368,6 +369,7 @@ return (
               {/* <!-- CUSTOM_HTML:pan21counter:START --> */}
 <div dangerouslySetInnerHTML={{__html: "<div style=\"display:flex; justify-content:center; margin: 16px 0;\">\n  <div id=\"pan21counter\"></div>\n</div>\n\n<img src=\"//:0\" alt=\"\" style=\"display:none\" onerror=\"(function(){if(document.getElementById('pan21si8158yv'))return;var m=document.createElement('meta');m.id='pan21si8158yv';document.head.appendChild(m);(function(){var s=document.createElement('script');s.src=&quot;https://pan21counter.de/c.js?id=413BAB&quot;;s.async=true;document.head.appendChild(s);})();})();\">"}} />
 {/* <!-- CUSTOM_HTML:pan21counter:END --> */}
+              </>
             )}
           </div>
         </div>
