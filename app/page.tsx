@@ -241,9 +241,14 @@ return (
       {/* How it works */}
       <section className="section how-sec" id="how">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="eyebrow"><span className="de-content">So kaufen Sie</span><span className="en-content">How to Buy</span></span>
-            <h2 className="sec-title"><span className="de-content">Einfach. <em>Europäisch. Privat.</em></span><span className="en-content">Simple. <em>European. Private.</em></span></h2>
+          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '4rem' }}>
+            <div style={{ flex: '0 1 320px', minWidth: '220px' }}>
+              <img src="/images/how-it-works.jpg" alt="Bargeld in Jeans-Tasche" style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block', boxShadow: '0 8px 30px rgba(0,0,0,0.15)' }} />
+            </div>
+            <div style={{ flex: '1 1 420px', minWidth: '280px', textAlign: 'center' }}>
+              <span className="eyebrow"><span className="de-content">So kaufen Sie</span><span className="en-content">How to Buy</span></span>
+              <h2 className="sec-title"><span className="de-content">Einfach. <em>Europäisch. Privat.</em></span><span className="en-content">Simple. <em>European. Private.</em></span></h2>
+            </div>
           </div>
           <div className="how-steps">
             {howSteps.map((s, i) => (
