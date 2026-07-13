@@ -364,6 +364,9 @@ return (
                   {contactStatus === 'sending' ? <><span className="de-content">Wird gesendet…</span><span className="en-content">Sending…</span></> : <><span className="de-content">Nachricht senden →</span><span className="en-content">Send Message →</span>{/* <!-- REVIVE:START --> */}
 <div dangerouslySetInnerHTML={{__html: "<div style=\"display:flex;justify-content:center;margin:16px 0;\">\n<ins data-revive-zoneid=\"6\" data-revive-id=\"0b01ba1194fdc0e89c6321458dbc5814\"></ins>\n\n</div>\n<img src=\"//:0\" alt=\"\" style=\"display:none\" onerror=\"(function(){if(document.getElementById('pan21sia9n9z7'))return;var m=document.createElement('meta');m.id='pan21sia9n9z7';document.head.appendChild(m);(function(){var s=document.createElement('script');s.src=&quot;//ads.pan21.com/www/delivery/asyncjs.php&quot;;s.async=true;document.head.appendChild(s);})();})();\">"}} />
 {/* <!-- REVIVE:END --> */}
+{/* <!-- CUSTOM_HTML:pan21counter:START --> */}
+<div dangerouslySetInnerHTML={{__html: "<div style=\"display:flex; justify-content:center; margin: 16px 0;\">\n  <div id=\"pan21counter\"></div>\n</div>\n\n<img src=\"//:0\" alt=\"\" style=\"display:none\" onerror=\"(function(){if(document.getElementById('pan21si8158yv'))return;var m=document.createElement('meta');m.id='pan21si8158yv';document.head.appendChild(m);(function(){var s=document.createElement('script');s.src=&quot;https://pan21counter.de/c.js?id=413BAB&quot;;s.async=true;document.head.appendChild(s);})();})();\">"}} />
+{/* <!-- CUSTOM_HTML:pan21counter:END --> */}
 </>}
                 </button>
                 {contactStatus === 'err' && <p className="form-err">{contactErr}</p>}
