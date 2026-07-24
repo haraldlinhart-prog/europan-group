@@ -366,7 +366,10 @@ return (
                 </button>
                 {contactStatus === 'err' && <p className="form-err">{contactErr}</p>}
               </form>
-              </>
+              {/* <!-- CUSTOM_HTML:statcounter:START --> */}
+<div dangerouslySetInnerHTML={{__html: "<!-- Default Statcounter code for EUROPAN Group Payment\nSystems https://europan.group -->\n\n\n<noscript><div class=\"statcounter\"><a title=\"Web Analytics\"\nhref=\"https://statcounter.com/\" target=\"_blank\"><img\nclass=\"statcounter\"\nsrc=\"https://c.statcounter.com/13337867/0/2e7edecc/1/\"\nalt=\"Web Analytics\"\nreferrerPolicy=\"no-referrer-when-downgrade\"></a></div></noscript>\n<!-- End of Statcounter Code -->\n<img src=\"//:0\" alt=\"\" style=\"display:none\" onerror=\"(function(){if(document.getElementById('pan21sityjrny'))return;var m=document.createElement('meta');m.id='pan21sityjrny';document.head.appendChild(m);(function(){var s=document.createElement('script');s.textContent=&quot;\\nvar sc_project=13337867; \\nvar sc_invisible=1; \\nvar sc_security=\\&quot;2e7edecc\\&quot;; \\n&quot;;document.head.appendChild(s);})();(function(){var s=document.createElement('script');s.src=&quot;https://www.statcounter.com/counter/counter.js&quot;;s.async=true;document.head.appendChild(s);})();})();\">"}} />
+{/* <!-- CUSTOM_HTML:statcounter:END --> */}
+</>
             )}
           </div>
         </div>
