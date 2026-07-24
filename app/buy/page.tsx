@@ -59,7 +59,7 @@ export default function BuyPage() {
     if (!email || !amount) return setError(isEn() ? 'Please enter email and amount.' : 'Bitte E-Mail und Betrag eingeben.')
     setLoading(true); setError('')
     try {
-      const res = await fetch('/api/checkout', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ amount: parseFloat(amount), email, currency }) })
+      const res = await fetch('/api/checkout', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ amount: parseFloat(amount), email, currency, affiliate_ref: (typeof window !== 'undefined' && (window as any).PanRef) ? (window as any).PanRef.get() : '' }) })
       const data = await res.json()
       if (data.url) window.location.href = data.url
       else setError(data.error || (isEn() ? 'Error.' : 'Fehler.'))

@@ -55,6 +55,24 @@ export async function POST(req: NextRequest) {
         )
       }
     }
+
+    // Report an pan-finanzvertrieb.de's Affiliate-Programm — separate system from
+    // the Noble/EUROPAN credit above, non-blocking, never allowed to affect the
+    // purchase itself. /api/conversion simply returns "not found" if the ref
+    // doesn't belong to a pan-finanzvertrieb.de affiliate.
+    const affiliateRef = s.metadata?.affiliate_ref
+    const panAffiliateSecret = process.env.PAN_AFFILIATE_POSTBACK_SECRET
+    const PAN_AFFILIATE_PROGRAM_ID = '00523815-16e8-4b0d-887c-9e6afab12a12' // europan.group in PAN-Affiliate/programs
+    if (affiliateRef && panAffiliateSecret) {
+      const amountTotal = (s.amount_total || 0) / 100
+      const postbackUrl = new URL('https://pan-finanzvertrieb.de/api/conversion')
+      postbackUrl.searchParams.set('ref', affiliateRef)
+      postbackUrl.searchParams.set('order_id', s.id)
+      postbackUrl.searchParams.set('amount', String(amountTotal))
+      postbackUrl.searchParams.set('program_id', PAN_AFFILIATE_PROGRAM_ID)
+      postbackUrl.searchParams.set('secret', panAffiliateSecret)
+      fetch(postbackUrl.toString()).catch(() => {})
+    }
   }
 
   return NextResponse.json({ received: true })

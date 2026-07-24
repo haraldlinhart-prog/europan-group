@@ -16,7 +16,7 @@ async function getAppliedRate(currency: string): Promise<number> {
 
 export async function POST(req: NextRequest) {
   try {
-    const { amount, email, currency: rawCurrency } = await req.json()
+    const { amount, email, currency: rawCurrency, affiliate_ref } = await req.json()
     const currency = (rawCurrency || 'EUR').toUpperCase()
 
     if (!amount || !email || amount < 1 || amount > 100000) return NextResponse.json({ error: 'Invalid amount' }, { status: 400 })
@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
         'metadata[paid_currency]': currency,
         'metadata[paid_amount]': String(amount),
         'metadata[applied_rate]': String(appliedRate),
+        'metadata[affiliate_ref]': typeof affiliate_ref === 'string' ? affiliate_ref.trim() : '',
       }),
     })
     const session = await res.json()
