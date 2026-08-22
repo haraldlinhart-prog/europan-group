@@ -3,6 +3,34 @@ import { NextRequest, NextResponse } from 'next/server'
 const SUPPORTED = ['EUR', 'GBP', 'USD', 'CHF']
 const DEFAULT_MARGIN_PCT = 0.03
 
+// Haertung 22.08.26: siehe shop-pan21/app/api/checkout/route.ts fuer den
+// Hintergrund (bestaetigter Card-Testing-Bot-Angriff, 21.-22.08.26).
+// Bei diesem Endpoint besonders wichtig, da Betraege bis 100.000 EUR
+// zulaessig sind.
+async function isRateLimited(ip: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${process.env.NOBLE_API_URL}/rate-limit-check`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.NOBLE_API_KEY}`,
+      },
+      body: JSON.stringify({
+        bucket_key: `europangroup-checkout:${ip}`,
+        max_count: 5,
+        window_seconds: 3600,
+      }),
+      signal: AbortSignal.timeout(2500),
+    })
+    if (!res.ok) return false
+    const data = await res.json()
+    return data.allowed === false
+  } catch (e) {
+    console.error('Rate-limit check failed (fail-open):', e)
+    return false
+  }
+}
+
 async function getAppliedRate(currency: string): Promise<number> {
   if (currency === 'EUR') return 1
   const marginPct = parseFloat(process.env.FX_MARGIN_PCT || '') || DEFAULT_MARGIN_PCT
@@ -16,10 +44,31 @@ async function getAppliedRate(currency: string): Promise<number> {
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown'
+    if (await isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Zu viele Anfragen. Bitte später erneut versuchen.' }, { status: 429 })
+    }
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://europan.group'
+    const siteHost = new URL(siteUrl).host
+    const rawOrigin = req.headers.get('origin') || req.headers.get('referer') || ''
+    let requestHost = ''
+    try {
+      requestHost = rawOrigin ? new URL(rawOrigin).host : ''
+    } catch {
+      requestHost = ''
+    }
+    if (requestHost !== siteHost) {
+      return NextResponse.json({ error: 'Ungültige Anfrage-Herkunft.' }, { status: 403 })
+    }
+
     const { amount, email, currency: rawCurrency, affiliate_ref } = await req.json()
     const currency = (rawCurrency || 'EUR').toUpperCase()
 
     if (!amount || !email || amount < 1 || amount > 100000) return NextResponse.json({ error: 'Invalid amount' }, { status: 400 })
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json({ error: 'Ungültige E-Mail-Adresse.' }, { status: 400 })
+    }
     if (!SUPPORTED.includes(currency)) return NextResponse.json({ error: 'Unsupported currency' }, { status: 400 })
 
     const stripeKey = process.env.STRIPE_SECRET_KEY
@@ -29,7 +78,6 @@ export async function POST(req: NextRequest) {
     const appliedRate = await getAppliedRate(currency)
     const epAmount = (parseFloat(amount) * appliedRate).toFixed(2)
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://europan.group'
     const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${stripeKey}`, 'Content-Type': 'application/x-www-form-urlencoded' },
