@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import './fonts.css'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -42,13 +43,6 @@ window.setLang=function(l){
   try{localStorage.setItem('europan_lang', l);}catch(e){}
   document.querySelectorAll('[data-lang-btn]').forEach(function(b){b.classList.toggle('active', b.getAttribute('data-lang-btn')===l);});
 };` }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-        {/* Matomo — reuse ID 93 until new ID assigned */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FinancialProduct",
@@ -61,8 +55,6 @@ window.setLang=function(l){
           "category": "Private Digital Currency / European Virtual Currency",
         })}} />
         <meta name="ai-crawlers" content="allowed" />
-              <script dangerouslySetInnerHTML={{__html: `var sc_project=13317697;var sc_invisible=1;var sc_security="458f783c";`}} />
-        <script async src="https://www.statcounter.com/counter/counter.js" />
         <script src="https://pan-finanzvertrieb.de/pan-ref.js" />
       </head>
       <body>
