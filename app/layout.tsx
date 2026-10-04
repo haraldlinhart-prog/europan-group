@@ -3,7 +3,7 @@ import './fonts.css'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://europan.group'),
+  metadataBase: new URL('https://www.europan.group/'),
   title: {
     default: 'EUROPAN (EP) — Private Digital Currency | europan.group',
     template: '%s | EUROPAN',
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: 'website',
-    url: 'https://europan.group',
+    url: 'https://www.europan.group/',
     siteName: 'EUROPAN',
     title: 'EUROPAN (EP) — The European Private Digital Currency',
     description: 'Buy EUROPAN (EP) — the private European digital currency of the Noble network. Stable, secure, members only.',
     locale: 'en_GB',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://europan.group' },
+  alternates: { canonical: 'https://www.europan.group/' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -49,7 +49,7 @@ window.setLang=function(l){
           "name": "EUROPAN",
           "alternateName": ["EP", "EUROPAN EP"],
           "description": "EUROPAN (EP) is a private European digital currency issued within the Noble Limited private investment network. 1 EP = €1.00 EUR. Fixed rate, no volatility.",
-          "url": "https://europan.group",
+          "url": "https://www.europan.group/",
           "provider": { "@type": "Organization", "name": "Noble Limited", "url": "https://noble-limited.com" },
           "feesAndCommissionsSpecification": "1 EP = €1.00 EUR — Fixed rate",
           "category": "Private Digital Currency / European Virtual Currency",

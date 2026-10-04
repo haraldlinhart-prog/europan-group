@@ -10,4 +10,4 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Google-Extended
 Allow: /
-Sitemap: https://europan.group/sitemap.xml
+Sitemap: https://www.europan.group/sitemap.xml
