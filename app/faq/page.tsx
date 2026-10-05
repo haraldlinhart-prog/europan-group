@@ -132,6 +132,10 @@ export default function FaqPage() {
         <p style={{ fontSize: '0.72rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}>
           © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited") · Eingetragen in Neuseeland · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Private Capital Ltd (trading as "Noble Limited") · Registered in New Zealand · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
         </p>
+        <div className="legal-links" style={{ marginTop: '1rem' }}>
+          <Link href="/impressum"><span className="de-content">Impressum</span><span className="en-content">Legal notice</span></Link>
+          <Link href="/datenschutz"><span className="de-content">Datenschutz</span><span className="en-content">Privacy policy</span></Link>
+        </div>
       </footer>
     </div>
   )

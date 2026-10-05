@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import LegalFooter from '../_legal/LegalLinks'
 import '../globals.css'
 
 const EP_RATE = 1.00
@@ -308,6 +309,7 @@ export default function BuyPage() {
           )}
         </div>
       </div>
+      <LegalFooter />
     </div>
   )
 }

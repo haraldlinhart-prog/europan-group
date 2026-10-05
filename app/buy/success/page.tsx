@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { ImpressumLink, DatenschutzLink } from '../../_legal/LegalLinks'
 import { useSearchParams } from 'next/navigation'
 import { Suspense, useEffect } from 'react'
 import '../../globals.css'
@@ -33,6 +34,10 @@ function SuccessContent() {
           <a href="https://noble-limited.com/dashboard" target="_blank" rel="noopener" className="btn-green"><span className="de-content">Dashboard ansehen →</span><span className="en-content">View Dashboard →</span></a>
           <a href="https://shop.pan21.com" target="_blank" rel="noopener" className="btn-outline-green">PAN21 Shop →</a>
           <Link href="/" className="btn-ghost"><span className="de-content">← Zurück</span><span className="en-content">← Back</span></Link>
+        </div>
+        <div className="legal-links" style={{ marginTop: '2rem' }}>
+          <ImpressumLink />
+          <DatenschutzLink />
         </div>
       </div>
     </div>

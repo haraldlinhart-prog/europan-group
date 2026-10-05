@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import LegalFooter from '../../_legal/LegalLinks'
 import '../../home.css'
 
 type Offer = {
@@ -160,6 +161,7 @@ export default function InternetStadtPage() {
           ))}
         </div>
       </div>
+      <LegalFooter />
     </div>
   )
 }

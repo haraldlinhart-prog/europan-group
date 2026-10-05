@@ -394,6 +394,8 @@ return (
             <Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link>
             <Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link>
             <Link href="/faq">FAQ</Link>
+            <Link href="/impressum"><span className="de-content">Impressum</span><span className="en-content">Legal notice</span></Link>
+            <Link href="/datenschutz"><span className="de-content">Datenschutz</span><span className="en-content">Privacy policy</span></Link>
             <a href="https://noble-limited.com" target="_blank" rel="noopener">Noble Limited</a>
             <a href="https://shop.pan21.com" target="_blank" rel="noopener">PAN21 Shop</a>
           </div>
