@@ -82,7 +82,7 @@ button { cursor: pointer; font-family: var(--ff-b); }
   .form-row { grid-template-columns: 1fr; }
 }
 
-/* Bilingual toggle — same convention as pan-office.de and other PAN21 sites:
+/* Bilingual toggle — same convention as other PAN21 sites:
    German is the default, English is opt-in via html.en class. */
 .de-content { display: inline; }
 .en-content { display: none; }
