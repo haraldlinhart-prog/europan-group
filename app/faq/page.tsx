@@ -10,8 +10,8 @@ const FAQS: Faq[] = [
     id: 'what-is-europan',
     q_de: 'Was ist EUROPAN eigentlich?',
     q_en: 'What actually is EUROPAN?',
-    a_de: <>EUROPAN (EP) ist ein <strong>Prepaid-Guthaben</strong> für das PAN21-Netzwerk. Sie kaufen Guthaben — 1&nbsp;€ Gutscheinwert entspricht 1&nbsp;€ EUROPAN — und setzen es direkt gegen den Preis von Buchungen bei teilnehmenden PAN21-Seiten ein, z.&nbsp;B. auf shop.pan21.com oder pan-office.de.</>,
-    a_en: <>EUROPAN (EP) is a <strong>prepaid balance</strong> for the PAN21 network. You purchase balance — €1 of voucher value equals €1 of EUROPAN — and redeem it directly against the price of bookings on participating PAN21 sites, e.g. shop.pan21.com or pan-office.de.</>,
+    a_de: <>EUROPAN (EP) ist ein <strong>Prepaid-Guthaben</strong> für das PAN21-Netzwerk. Sie kaufen Guthaben — 1&nbsp;€ Gutscheinwert entspricht 1&nbsp;€ EUROPAN — und setzen es direkt gegen den Preis von Buchungen bei teilnehmenden PAN21-Seiten ein, z.&nbsp;B. auf shop.pan21.com.</>,
+    a_en: <>EUROPAN (EP) is a <strong>prepaid balance</strong> for the PAN21 network. You purchase balance — €1 of voucher value equals €1 of EUROPAN — and redeem it directly against the price of bookings on participating PAN21 sites, e.g. shop.pan21.com.</>,
   },
   {
     id: 'account-vs-balance',
@@ -41,8 +41,8 @@ const FAQS: Faq[] = [
     id: 'check-balance',
     q_de: 'Wie prüfe ich mein aktuelles Guthaben?',
     q_en: 'How do I check my current balance?',
-    a_de: <>Nach dem Kauf erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget bei pan-office.de oder shop.pan21.com.</>,
-    a_en: <>After purchase you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on pan-office.de or shop.pan21.com.</>,
+    a_de: <>Nach dem Kauf erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget auf shop.pan21.com.</>,
+    a_en: <>After purchase you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on shop.pan21.com.</>,
   },
   {
     id: 'doppel-wums',
