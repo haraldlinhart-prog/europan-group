@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import LegalFooter from '../_legal/LegalLinks'
+import AccountLink, { NavAccountLink } from '../_account/AccountLink'
 import '../globals.css'
 
 const EP_RATE = 1.00
@@ -93,6 +94,7 @@ export default function BuyPage() {
             <li><Link href="/buy" style={{ color: 'var(--green)' }}><span className="de-content">EP kaufen</span><span className="en-content">Buy EP</span></Link></li>
           </ul>
           <div className="nav-actions">
+            <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
@@ -101,7 +103,7 @@ export default function BuyPage() {
         </div>
       </nav>
 
-      <div style={{ paddingTop: '68px', display: 'grid', gridTemplateColumns: '340px 1fr', minHeight: '100vh' }}>
+      <div className="buy-layout">
         {/* Sidebar */}
         <div style={{ background: 'var(--green)', padding: '3rem 2.5rem', display: 'flex', flexDirection: 'column' }}>
           <img src="/europan-logo.png" alt="EUROPAN" style={{ height: '40px', width: 'auto', marginBottom: '1rem' }} />
@@ -135,7 +137,7 @@ export default function BuyPage() {
         </div>
 
         {/* Main */}
-        <div style={{ padding: '4rem 3.5rem', maxWidth: '560px' }}>
+        <div className="buy-main">
           {wireSubmitted ? (
             <div style={{ textAlign: 'center', padding: '4rem 0' }}>
               <div style={{ width: '64px', height: '64px', background: 'rgba(27,107,58,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', fontSize: '1.5rem' }}>✓</div>
@@ -148,6 +150,11 @@ export default function BuyPage() {
             </div>
           ) : (
             <>
+              <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '1.5rem' }}>
+                <span className="de-content">Schon ein Konto? </span><span className="en-content">Already have an account? </span>
+                <AccountLink de="Guthaben ansehen →" en="View your balance →" style={{ color: 'var(--green)', fontWeight: 600 }} />
+              </p>
+
               {/* Currency selector */}
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.75rem' }}><span className="de-content">Zahlungswährung</span><span className="en-content">Payment Currency</span></label>
@@ -251,7 +258,7 @@ export default function BuyPage() {
                   <div className="fg">
                     <label><span className="de-content">Ihre E-Mail-Adresse *</span><span className="en-content">Your Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet und ist jederzeit abrufbar. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your EUROPAN balance will be linked to this email address and available any time. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr Guthaben wird dem Konto zu dieser E-Mail-Adresse gutgeschrieben. Gibt es noch keins, legen wir es automatisch an. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your balance is credited to the account for this email address. If there is none yet, we create it automatically. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
                   </div>
                   <div style={{ background: 'var(--white)', border: '1px solid var(--lgray)', padding: '1rem', borderRadius: '4px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: '0.82rem', borderBottom: '1px solid var(--lgray)' }}><span style={{ color: 'var(--gray)' }}><span className="de-content">Betrag</span><span className="en-content">Amount</span></span><strong>€{parseFloat(amount||'0').toFixed(2)}</strong></div>
@@ -288,7 +295,7 @@ export default function BuyPage() {
                   <div className="fg">
                     <label><span className="de-content">E-Mail-Adresse *</span><span className="en-content">Email Address *</span></label>
                     <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr EUROPAN-Guthaben wird dieser E-Mail-Adresse zugeordnet, sobald der Betrag eingegangen ist. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your EUROPAN balance will be linked to this email address once the payment is received. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
+                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr Guthaben wird dem Konto zu dieser E-Mail-Adresse gutgeschrieben, sobald der Betrag eingegangen ist. Gibt es noch keins, legen wir es für Sie an. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your balance is credited to the account for this email address once the payment is received. If there is none yet, we create it for you. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
                   </div>
                   {error && <p className="form-err">{error}</p>}
                   <button type="submit" className="btn-green-lg" disabled={loading} style={{ width: '100%' }}>

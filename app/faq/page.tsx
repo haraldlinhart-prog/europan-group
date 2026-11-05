@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { NavAccountLink } from '../_account/AccountLink'
 import '../home.css'
 
 type Faq = { id: string; q_de: string; q_en: string; a_de: React.ReactNode; a_en: React.ReactNode }
@@ -34,15 +35,15 @@ const FAQS: Faq[] = [
     id: 'temporary-record',
     q_de: 'Warum sehe ich manchmal den Begriff „Konto" im Zusammenhang mit meinem Guthaben?',
     q_en: 'Why do I sometimes see the word "account" mentioned alongside my balance?',
-    a_de: <>Aus rein technischen Gründen legt unser Partner Noble Limited im Hintergrund einen einfachen Datensatz an, der Ihr Guthaben Ihrer E-Mail-Adresse zuordnet — dieser dient <strong>ausschließlich der Verwaltung Ihres EUROPAN-Guthabens</strong>. Es handelt sich dabei nicht um ein reguläres Bankkonto, es gibt kein Login, keine Karte und keinen Kredit. Dieser Datensatz besteht, solange Sie Guthaben halten, und ist unabhängig von einer vollständigen Noble-Registrierung.</>,
-    a_en: <>For purely technical reasons, our partner Noble Limited creates a simple record in the background that links your balance to your email address — this exists <strong>solely to manage your EUROPAN balance</strong>. It is not a regular bank account: there is no login, no card, and no credit involved. This record exists for as long as you hold a balance, independent of a full Noble registration.</>,
+    a_de: <>Aus rein technischen Gründen legt unser Partner Noble Limited im Hintergrund einen einfachen Datensatz an, der Ihr Guthaben Ihrer E-Mail-Adresse zuordnet — dieser dient <strong>ausschließlich der Verwaltung Ihres EUROPAN-Guthabens</strong>. Es handelt sich dabei nicht um ein reguläres Bankkonto, es gibt keine Karte und keinen Kredit. Dieser Datensatz besteht, solange Sie Guthaben halten, und ist unabhängig von einer vollständigen Noble-Registrierung. Ansehen können Sie ihn jederzeit unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>.</>,
+    a_en: <>For purely technical reasons, our partner Noble Limited creates a simple record in the background that links your balance to your email address — this exists <strong>solely to manage your EUROPAN balance</strong>. It is not a regular bank account: there is no card and no credit involved. This record exists for as long as you hold a balance, independent of a full Noble registration. You can view it any time under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>.</>,
   },
   {
     id: 'check-balance',
     q_de: 'Wie prüfe ich mein aktuelles Guthaben?',
     q_en: 'How do I check my current balance?',
-    a_de: <>Nach dem Kauf erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget bei pan-office.de oder shop.pan21.com.</>,
-    a_en: <>After purchase you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on pan-office.de or shop.pan21.com.</>,
+    a_de: <>Nach dem Kauf erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget auf shop.pan21.com. Guthaben und Buchungen sehen Sie außerdem unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>; dafür schicken wir Ihnen einen Anmeldelink an Ihre E-Mail-Adresse.</>,
+    a_en: <>After purchase you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on shop.pan21.com. You can also see your balance and bookings under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>; we send a sign-in link to your email address for this.</>,
   },
   {
     id: 'doppel-wums',
@@ -55,8 +56,8 @@ const FAQS: Faq[] = [
     id: 'full-registration',
     q_de: 'Lohnt sich die vollständige Registrierung bei Noble Limited?',
     q_en: 'Is a full Noble Limited registration worth it?',
-    a_de: <>Für reines EUROPAN-Guthaben nicht zwingend nötig. Eine vollständige Registrierung bei <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> lohnt sich, wenn Sie ein Login mit Dashboard, Transaktionsübersicht und Zugriff auf weitere Noble-Netzwerkwährungen möchten. Sie können das jederzeit unabhängig vom EUROPAN-Kauf nachholen — mit derselben E-Mail-Adresse wird Ihr vorhandenes Guthaben dabei automatisch übernommen.</>,
-    a_en: <>Not strictly necessary for plain EUROPAN balance. A full registration at <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> is worth it if you want a login with a dashboard, transaction history, and access to the other Noble network currencies. You can do this any time, independent of buying EUROPAN — using the same email will automatically carry your existing balance over.</>,
+    a_de: <>Für reines EUROPAN-Guthaben nicht zwingend nötig. Eine vollständige Registrierung bei <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> lohnt sich, wenn Sie Zugriff auf die weiteren Noble-Netzwerkwährungen möchten. Sie können das jederzeit unabhängig vom EUROPAN-Kauf nachholen — mit derselben E-Mail-Adresse wird Ihr vorhandenes Guthaben dabei automatisch übernommen.</>,
+    a_en: <>Not strictly necessary for plain EUROPAN balance. A full registration at <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> is worth it if you want access to the other Noble network currencies. You can do this any time, independent of buying EUROPAN — using the same email will automatically carry your existing balance over.</>,
   },
   {
     id: 'regulation',
@@ -88,6 +89,7 @@ export default function FaqPage() {
         <div className="nav-inner">
           <Link href="/" className="nav-logo">)( EUROPAN</Link>
           <div className="nav-actions">
+            <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>

@@ -47,6 +47,8 @@ button { cursor: pointer; font-family: var(--ff-b); }
 .nav-links a { font-size: 0.78rem; font-weight: 500; color: var(--gray); transition: color 0.2s; }
 .nav-links a:hover { color: var(--green); }
 .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+.nav-account { font-size: 0.78rem; font-weight: 600; color: var(--green); white-space: nowrap; transition: color 0.2s; }
+.nav-account:hover { color: var(--green2); }
 .nav-noble-link { font-size: 0.72rem; color: var(--muted); transition: color 0.2s; }
 .nav-noble-link:hover { color: var(--green); }
 
@@ -77,9 +79,26 @@ button { cursor: pointer; font-family: var(--ff-b); }
 .form-err { color: #DC2626; font-size: 0.875rem; margin-top: 0.75rem; }
 .hp-field { display: none !important; }
 
+/* Buy page */
+.buy-layout { padding-top: 68px; display: grid; grid-template-columns: 340px 1fr; min-height: 100vh; }
+.buy-main { padding: 4rem 3.5rem; max-width: 560px; }
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .form-row { grid-template-columns: 1fr; }
+  .buy-layout { grid-template-columns: minmax(0, 1fr); }
+  .buy-main { order: -1; padding: 2rem 1rem; max-width: none; }
+  .nav-inner { padding: 0 1rem; }
+  .nav-logo { flex-shrink: 0; }
+  .nav-actions { gap: 0.75rem; }
+  .nav-actions .btn-green { white-space: nowrap; padding: 0.55rem 0.9rem; font-size: 0.78rem; }
+  .nav-actions .lang-switch { margin-left: 0; }
+}
+
+/* Phones: the account link stays, the page itself leads with the big buy button. */
+@media (max-width: 560px) {
+  .nav-actions .btn-green { display: none; }
+  .nav-logo img { height: 24px !important; }
 }
 
 /* Bilingual toggle — same convention as pan-office.de and other PAN21 sites:
