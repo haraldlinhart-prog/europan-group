@@ -55,9 +55,9 @@ export default function HomePage() {
   ]
 
   const howSteps = [
-    { title_de: 'Betrag wählen', title_en: 'Choose your amount', desc_de: 'Bis zu 1.000 € per Kreditkarte — sofortige Gutschrift. Darüber per Banküberweisung an Noble Private Capital Limited in Hongkong.', desc_en: 'Up to €1,000 by credit card — instant delivery. Above €1,000 by bank transfer to Noble Private Capital Limited in Hong Kong.' },
-    { title_de: 'Sicher bezahlen', title_en: 'Pay securely', desc_de: 'Kartenzahlungen über Stripe (Visa, Mastercard, Amex, Apple Pay). Bei Überweisungen bitte Ihre EUROPAN-Konto-E-Mail als Verwendungszweck angeben.', desc_en: 'Card payments via Stripe (Visa, Mastercard, Amex, Apple Pay). Bank transfers reference your EUROPAN account email for identification.' },
-    { title_de: 'EUROPAN erhalten', title_en: 'Receive EUROPAN', desc_de: 'Ihr EP-Guthaben wird Ihrem EUROPAN-Konto gutgeschrieben. Kartenzahlungen sofort — Überweisungen innerhalb von 1–3 Werktagen.', desc_en: 'Your EP balance is credited to your EUROPAN account. Card orders are instant — bank transfers within 1–3 business days.', link_de: 'Zum Konto →', link_en: 'Go to your account →' },
+    { title_de: 'Betrag wählen', title_en: 'Choose your amount', desc_de: 'Bis zu 100 € je Kauf per Kreditkarte — sofortige Gutschrift.', desc_en: 'Up to €100 per purchase by credit card — instant delivery.' },
+    { title_de: 'Sicher bezahlen', title_en: 'Pay securely', desc_de: 'Kartenzahlungen über Stripe (Visa, Mastercard, Amex, Apple Pay).', desc_en: 'Card payments via Stripe (Visa, Mastercard, Amex, Apple Pay).' },
+    { title_de: 'EUROPAN erhalten', title_en: 'Receive EUROPAN', desc_de: 'Ihr EP-Guthaben wird Ihrem EUROPAN-Konto gutgeschrieben, bei Kartenzahlung sofort.', desc_en: 'Your EP balance is credited to your EUROPAN account, instantly for card orders.', link_de: 'Zum Konto →', link_en: 'Go to your account →' },
     { title_de: 'Im Netzwerk & Shop einsetzen', title_en: 'Use in the network & shop', desc_de: 'Auf shop.pan21.com mit EP für den Doppel-Wums-Bonus bezahlen, an Noble-Mitglieder überweisen oder als stabilen privaten Wertspeicher ansammeln.', desc_en: 'Pay on shop.pan21.com with EP for the Doppel-Wums bonus, transfer to Noble members, or accumulate as a stable private store of value.' },
   ]
 
@@ -116,8 +116,8 @@ return (
               <span className="en-content">EUROPAN —<br /><em>The European</em><br />Private Currency</span>
             </h1>
             <p className="hero-sub">
-              <span className="de-content">EUROPAN (EP) ist die private europäische Digitalwährung des Noble-Netzwerks. Stabil, privat und einzigartig verbunden mit dem PAN21-Shop-Bonussystem. Kauf per Kreditkarte oder Überweisung.</span>
-              <span className="en-content">EUROPAN (EP) is the private European digital currency of the Noble network. Stable, private, and uniquely linked to the PAN21 Shop bonus system. Buy with credit card or bank transfer.</span>
+              <span className="de-content">EUROPAN (EP) ist die private europäische Digitalwährung des Noble-Netzwerks. Stabil, privat und einzigartig verbunden mit dem PAN21-Shop-Bonussystem. Kauf per Kreditkarte.</span>
+              <span className="en-content">EUROPAN (EP) is the private European digital currency of the Noble network. Stable, private, and uniquely linked to the PAN21 Shop bonus system. Buy with credit card.</span>
             </p>
             <div className="hero-actions">
               <Link href="/buy" className="btn-green-lg"><span className="de-content">EUROPAN kaufen →</span><span className="en-content">Buy EUROPAN →</span></Link>
@@ -144,7 +144,7 @@ return (
         <div className="container stats-inner">
           {[
             { val: `€${rate.toFixed(2)}`, label_de: 'Pro EUROPAN', label_en: 'Per EUROPAN' },
-            { val: '€1.000', label_de: 'Kartenlimit', label_en: 'Card limit' },
+            { val: '€100', label_de: 'Limit je Kauf', label_en: 'Limit per purchase' },
             { val: '5%', label_de: 'Doppel-Wums-Bonus', label_en: 'Doppel-Wums Bonus' },
             { val: '24/7', label_de: 'Kontozugriff', label_en: 'Account access' },
           ].map(s => (

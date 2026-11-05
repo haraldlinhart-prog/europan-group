@@ -6,30 +6,17 @@ import AccountLink, { NavAccountLink } from '../_account/AccountLink'
 import '../globals.css'
 
 const EP_RATE = 1.00
-const CARD_LIMIT = 1000
-const BANK = {
-  Beneficiary: 'NOBLE PRIVATE CAPITAL LIMITED',
-  Bank: 'Citibank, N.A., Hong Kong Branch',
-  SWIFT: 'CITIHKHX',
-  Account: '390206957',
-  Currency: 'EUR',
-  Reference: 'EP Purchase — [Your EUROPAN Account Email]',
-}
-
+const PURCHASE_LIMIT = 100
 export default function BuyPage() {
   const [amount, setAmount] = useState('')
   const [epAmount, setEpAmount] = useState(0)
-  const [mode, setMode] = useState<'card'|'wire'|null>(null)
+  const [mode, setMode] = useState<'card'|'over'|null>(null)
   const [email, setEmail] = useState('')
-  const [wireName, setWireName] = useState('')
-  const [wireSubmitted, setWireSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [currency, setCurrency] = useState('EUR')
   const [rate, setRate] = useState(EP_RATE)
   const [rateLoading, setRateLoading] = useState(false)
-  const [website, setWebsite] = useState('') // Honeypot
-  const [formstart] = useState(() => Date.now())
 
   useEffect(() => {
     const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
@@ -49,8 +36,8 @@ export default function BuyPage() {
     const inputAmt = parseFloat(amount) || 0
     const eurEquivalent = inputAmt * rate
     setEpAmount(eurEquivalent)
-    if (inputAmt > 0 && eurEquivalent <= CARD_LIMIT) setMode('card')
-    else if (eurEquivalent > CARD_LIMIT) { setMode('wire'); if (currency !== 'EUR') setCurrency('EUR') }
+    if (inputAmt > 0 && eurEquivalent <= PURCHASE_LIMIT) setMode('card')
+    else if (eurEquivalent > PURCHASE_LIMIT) setMode('over')
     else setMode(null)
   }, [amount, rate])
 
@@ -65,19 +52,6 @@ export default function BuyPage() {
       const data = await res.json()
       if (data.url) window.location.href = data.url
       else setError(data.error || (isEn() ? 'Error.' : 'Fehler.'))
-    } catch { setError(isEn() ? 'Network error.' : 'Netzwerkfehler.') }
-    setLoading(false)
-  }
-
-  async function handleWire(e: React.FormEvent) {
-    e.preventDefault()
-    if (website) return // Bot hat das Honeypot-Feld ausgefüllt
-    if (!email || !amount || !wireName) return setError(isEn() ? 'Please fill in all fields.' : 'Bitte alle Felder ausfüllen.')
-    setLoading(true); setError('')
-    try {
-      const res = await fetch('/api/wire', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: wireName, email, amount: parseFloat(amount), epAmount, website, elapsed: Date.now() - formstart }) })
-      if (res.ok) setWireSubmitted(true)
-      else setError(isEn() ? 'Error. Please contact us directly by email.' : 'Fehler. Bitte direkt per E-Mail kontaktieren.')
     } catch { setError(isEn() ? 'Network error.' : 'Netzwerkfehler.') }
     setLoading(false)
   }
@@ -121,11 +95,7 @@ export default function BuyPage() {
           <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
               <div style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', padding: '4px 12px', borderRadius: '100px', fontSize: '0.72rem', fontWeight: 700, display: 'inline-block', marginBottom: '4px' }}>💳 <span className="de-content">Kreditkarte</span><span className="en-content">Credit Card</span></div>
-              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', marginTop: '4px', lineHeight: 1.6 }}><span className="de-content">Bis zu 1.000 € · Sofort · Visa, MC, Amex</span><span className="en-content">Up to €1,000 · Instant · Visa, MC, Amex</span></p>
-            </div>
-            <div>
-              <div style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', padding: '4px 12px', borderRadius: '100px', fontSize: '0.72rem', fontWeight: 700, display: 'inline-block', marginBottom: '4px', border: '1px solid rgba(255,255,255,0.2)' }}>🏦 <span className="de-content">Überweisung</span><span className="en-content">Bank Transfer</span></div>
-              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', marginTop: '4px', lineHeight: 1.6 }}><span className="de-content">Ab 1.000 € · 1–3 Werktage</span><span className="en-content">€1,000 and above · 1–3 business days</span></p>
+              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', marginTop: '4px', lineHeight: 1.6 }}><span className="de-content">Bis zu 100 € je Kauf · Sofort · Visa, MC, Amex</span><span className="en-content">Up to €100 per purchase · Instant · Visa, MC, Amex</span></p>
             </div>
           </div>
           <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
@@ -138,18 +108,7 @@ export default function BuyPage() {
 
         {/* Main */}
         <div className="buy-main">
-          {wireSubmitted ? (
-            <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-              <div style={{ width: '64px', height: '64px', background: 'rgba(27,107,58,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', fontSize: '1.5rem' }}>✓</div>
-              <h2 style={{ fontFamily: 'var(--ff-d)', fontSize: '2rem', color: 'var(--charcoal)', marginBottom: '0.75rem' }}><span className="de-content">Überweisung bestätigt</span><span className="en-content">Wire Confirmed</span></h2>
-              <p style={{ color: 'var(--gray)', lineHeight: 1.8 }}>
-                <span className="de-content">Anweisungen an {email} gesendet. Ihr EP wird innerhalb von 1–3 Werktagen gutgeschrieben.</span>
-                <span className="en-content">Instructions sent to {email}. Your EP will be credited within 1–3 business days.</span>
-              </p>
-              <Link href="/" className="btn-green" style={{ marginTop: '2rem', display: 'inline-block' }}><span className="de-content">← Zurück zu EUROPAN</span><span className="en-content">← Back to EUROPAN</span></Link>
-            </div>
-          ) : (
-            <>
+          <>
               <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '1.5rem' }}>
                 <span className="de-content">Schon ein Konto? </span><span className="en-content">Already have an account? </span>
                 <AccountLink de="Guthaben ansehen →" en="View your balance →" style={{ color: 'var(--green)', fontWeight: 600 }} />
@@ -234,7 +193,7 @@ export default function BuyPage() {
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', border: `1.5px solid ${amount ? 'var(--green)' : 'var(--lgray)'}`, background: '#fff', borderRadius: '6px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
                   <span style={{ padding: '0 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '1.4rem', color: 'var(--muted)', borderRight: '1px solid var(--lgray)' }}>{currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}</span>
-                  <input type="number" min="1" max="100000" step="1" placeholder="0" value={amount} onChange={e => setAmount(e.target.value)} style={{ flex: 1, border: 'none', padding: '1rem 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '2rem', color: 'var(--charcoal)', background: 'transparent', outline: 'none', fontWeight: 400 }} />
+                  <input type="number" min="1" max="100" step="1" placeholder="0" value={amount} onChange={e => setAmount(e.target.value)} style={{ flex: 1, border: 'none', padding: '1rem 1.25rem', fontFamily: 'var(--ff-d)', fontSize: '2rem', color: 'var(--charcoal)', background: 'transparent', outline: 'none', fontWeight: 400 }} />
                 </div>
                 {parseFloat(amount) > 0 && (
                   <div style={{ marginTop: '0.6rem', fontSize: '0.9rem', color: 'var(--gray)' }}>
@@ -246,7 +205,7 @@ export default function BuyPage() {
                   <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', padding: '0.6rem 0.9rem', borderRadius: '4px', background: mode === 'card' ? 'rgba(27,107,58,0.07)' : 'rgba(30,40,32,0.05)', color: mode === 'card' ? 'var(--green2)' : 'var(--charcoal)', border: `1px solid ${mode === 'card' ? 'rgba(27,107,58,0.2)' : 'var(--lgray)'}` }}>
                     {mode === 'card'
                       ? <><span className="de-content">💳 Kreditkartenzahlung · sofortige Gutschrift</span><span className="en-content">💳 Credit card payment · instant delivery</span></>
-                      : <><span className="de-content">🏦 Für Beträge über 1.000 € ist eine Überweisung erforderlich (nur in EUR)</span><span className="en-content">🏦 Bank transfer required for amounts above €1,000 (EUR only)</span></>}
+                      : <><span className="de-content">Je Kauf sind höchstens 100 € oder der Gegenwert möglich.</span><span className="en-content">The maximum is €100 or the equivalent per purchase.</span></>}
                   </div>
                 )}
               </div>
@@ -275,45 +234,13 @@ export default function BuyPage() {
                 </form>
               )}
 
-              {/* Wire form */}
-              {mode === 'wire' && (
-                <form onSubmit={handleWire} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
-                    <label htmlFor="wire-website">Website</label>
-                    <input id="wire-website" name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
-                  </div>
-                  <h3 style={{ fontFamily: 'var(--ff-d)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--charcoal)' }}><span className="de-content">Banküberweisung</span><span className="en-content">Bank Transfer</span></h3>
-                  <div style={{ background: 'var(--white)', border: '1px solid var(--lgray)', borderLeft: '3px solid var(--green)', padding: '1.25rem 1.5rem', borderRadius: '0 6px 6px 0' }}>
-                    <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '0.75rem' }}><span className="de-content">Bankverbindung</span><span className="en-content">Bank Details</span></div>
-                    {Object.entries(BANK).map(([k,v]) => (
-                      <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', borderBottom: '1px solid var(--lgray)', fontSize: '0.82rem' }}>
-                        <span style={{ color: 'var(--gray)' }}>{k}</span><strong style={{ color: 'var(--charcoal)' }}>{v}</strong>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="fg"><label><span className="de-content">Vollständiger Name *</span><span className="en-content">Full Name *</span></label><input type="text" required placeholder="Wie auf Ihrem Bankkonto" value={wireName} onChange={e => setWireName(e.target.value)} /></div>
-                  <div className="fg">
-                    <label><span className="de-content">E-Mail-Adresse *</span><span className="en-content">Email Address *</span></label>
-                    <input type="email" required placeholder="ihre@email.de" value={email} onChange={e => setEmail(e.target.value)} />
-                    <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '3px' }}><span className="de-content">Ihr Guthaben wird dem Konto zu dieser E-Mail-Adresse gutgeschrieben, sobald der Betrag eingegangen ist. Gibt es noch keins, legen wir es für Sie an. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>Wie funktioniert das technisch?</Link></span><span className="en-content">Your balance is credited to the account for this email address once the payment is received. If there is none yet, we create it for you. <Link href="/faq#temporary-record" style={{ color: 'var(--gold)' }}>How does this work technically?</Link></span></p>
-                  </div>
-                  {error && <p className="form-err">{error}</p>}
-                  <button type="submit" className="btn-green-lg" disabled={loading} style={{ width: '100%' }}>
-                    {loading
-                      ? <><span className="de-content">Wird gesendet…</span><span className="en-content">Sending…</span></>
-                      : <><span className="de-content">Überweisung bestätigen →</span><span className="en-content">Confirm Wire Transfer →</span></>}
-                  </button>
-                </form>
-              )}
-
               {!mode && (
                 <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--muted)', fontSize: '0.9rem' }}>
                   <span className="de-content">Geben Sie oben einen Betrag ein, um Zahlungsoptionen zu sehen.</span>
                   <span className="en-content">Enter an amount above to see payment options.</span>
                 </div>
               )}
-            </>
-          )}
+          </>
         </div>
       </div>
       <LegalFooter />

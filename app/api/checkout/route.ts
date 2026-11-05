@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const SUPPORTED = ['EUR', 'GBP', 'USD', 'CHF']
 const DEFAULT_MARGIN_PCT = 0.03
+const PURCHASE_LIMIT_EUR = 100
 
 // Haertung 22.08.26: siehe shop-pan21/app/api/checkout/route.ts fuer den
 // Hintergrund (bestaetigter Card-Testing-Bot-Angriff, 21.-22.08.26).
-// Bei diesem Endpoint besonders wichtig, da Betraege bis 100.000 EUR
-// zulaessig sind.
 async function isRateLimited(ip: string): Promise<boolean> {
   try {
     const res = await fetch(`${process.env.NOBLE_API_URL}/rate-limit-check`, {
@@ -65,18 +64,22 @@ export async function POST(req: NextRequest) {
     const { amount, email, currency: rawCurrency, affiliate_ref } = await req.json()
     const currency = (rawCurrency || 'EUR').toUpperCase()
 
-    if (!amount || !email || amount < 1 || amount > 100000) return NextResponse.json({ error: 'Invalid amount' }, { status: 400 })
+    if (!amount || !email || amount < 1) return NextResponse.json({ error: 'Invalid amount' }, { status: 400 })
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Ungültige E-Mail-Adresse.' }, { status: 400 })
     }
     if (!SUPPORTED.includes(currency)) return NextResponse.json({ error: 'Unsupported currency' }, { status: 400 })
 
-    const stripeKey = process.env.STRIPE_SECRET_KEY
-    if (!stripeKey) return NextResponse.json({ error: 'Not configured' }, { status: 500 })
-
     // Rate is always computed server-side — never trust a client-supplied EP amount.
     const appliedRate = await getAppliedRate(currency)
-    const epAmount = (parseFloat(amount) * appliedRate).toFixed(2)
+    const eurValue = parseFloat(amount) * appliedRate
+    if (!(eurValue <= PURCHASE_LIMIT_EUR)) {
+      return NextResponse.json({ error: 'Je Kauf sind höchstens 100 € möglich. / The maximum is €100 per purchase.' }, { status: 400 })
+    }
+    const epAmount = eurValue.toFixed(2)
+
+    const stripeKey = process.env.STRIPE_SECRET_KEY
+    if (!stripeKey) return NextResponse.json({ error: 'Not configured' }, { status: 500 })
 
     const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',

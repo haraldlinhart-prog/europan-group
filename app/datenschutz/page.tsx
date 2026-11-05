@@ -33,7 +33,7 @@ export default function DatenschutzPage() {
 
         <h2>7. Zahlungen</h2>
         <p>Zahlungen werden über Stripe (Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Dublin 2, Irland) abgewickelt. Dabei werden die für die Zahlung erforderlichen Daten an Stripe übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
-        <p>Bei einem Kauf per Banküberweisung verarbeiten wir Ihren Namen, Ihre E-Mail-Adresse und den Betrag, um die Zahlung zuzuordnen. Zur Gutschrift und Anzeige Ihres EUROPAN-Guthabens werden Ihre E-Mail-Adresse und der Betrag an Noble Limited (noble-limited.com) übermittelt, die die Guthaben führt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+        <p>Zur Gutschrift und Anzeige Ihres EUROPAN-Guthabens werden Ihre E-Mail-Adresse und der Betrag an Noble Limited (noble-limited.com) übermittelt, die die Guthaben führt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
 
         <h2>8. Newsletter</h2>
         <p>Für den Newsletter nutzen wir beehiiv (Beehiiv Inc., USA). Wenn Sie sich anmelden, werden Ihre E-Mail-Adresse und Anmeldedaten bei beehiiv gespeichert. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit über den Abmeldelink widerrufen können.</p>
@@ -76,7 +76,7 @@ export default function DatenschutzPage() {
 
         <h2>7. Payments</h2>
         <p>Payments are processed by Stripe (Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Dublin 2, Ireland). The data required for the payment is transmitted to Stripe for this purpose. The legal basis is Art. 6(1)(b) GDPR.</p>
-        <p>For purchases by bank transfer, we process your name, email address and the amount in order to match your payment. To credit and display your EUROPAN balance, your email address and the amount are transmitted to Noble Limited (noble-limited.com), which maintains the balances. The legal basis is Art. 6(1)(b) GDPR.</p>
+        <p>To credit and display your EUROPAN balance, your email address and the amount are transmitted to Noble Limited (noble-limited.com), which maintains the balances. The legal basis is Art. 6(1)(b) GDPR.</p>
 
         <h2>8. Newsletter</h2>
         <p>We use beehiiv (Beehiiv Inc., USA) for our newsletter. When you subscribe, your email address and sign-up data are stored with beehiiv. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time via the unsubscribe link.</p>
