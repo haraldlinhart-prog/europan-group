@@ -16,27 +16,17 @@ const FAQS: Faq[] = [
   },
   {
     id: 'account-vs-balance',
-    q_de: 'Brauche ich ein Konto bei noble-limited.com, um EUROPAN zu sammeln?',
-    q_en: 'Do I need an account at noble-limited.com to collect EUROPAN?',
-    a_de: <>Nein. Zum Sammeln reicht Ihre <strong>E-Mail-Adresse</strong> — mehr nicht. EUROPAN-Guthaben und eine vollständige Registrierung bei Noble Limited sind zwei unterschiedliche Dinge:
-      <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.2rem', lineHeight: 1.8 }}>
-        <li><strong>EUROPAN-Guthaben</strong> — einfaches Punktekonto, verknüpft mit Ihrer E-Mail. Kein Login, keine Unterlagen, keine Prüfung nötig.</li>
-        <li><strong>Noble-Registrierung</strong> — eine separate, vollständige Mitgliedschaft bei noble-limited.com mit Profil und Login, die Sie <em>optional</em> und unabhängig von EUROPAN einrichten können.</li>
-      </ul>
-    </>,
-    a_en: <>No. Collecting only requires your <strong>email address</strong> — nothing else. EUROPAN balance and a full Noble Limited registration are two separate things:
-      <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.2rem', lineHeight: 1.8 }}>
-        <li><strong>EUROPAN balance</strong> — a simple points account linked to your email. No login, no documents, no review needed.</li>
-        <li><strong>Noble registration</strong> — a separate, full membership at noble-limited.com with a profile and login, which you can set up <em>optionally</em>, independent of EUROPAN.</li>
-      </ul>
-    </>,
+    q_de: 'Muss ich mich registrieren, um EUROPAN zu sammeln?',
+    q_en: 'Do I have to register to collect EUROPAN?',
+    a_de: <>Nein. Zum Sammeln reicht Ihre <strong>E-Mail-Adresse</strong>. Mit Ihrem ersten Bonus entsteht automatisch ein einfaches Punktekonto zu dieser Adresse, ohne Unterlagen und ohne Prüfung.</>,
+    a_en: <>No. Collecting only requires your <strong>email address</strong>. With your first bonus, a simple points account is created automatically for this address, with no documents and no review.</>,
   },
   {
     id: 'temporary-record',
     q_de: 'Warum sehe ich manchmal den Begriff „Konto" im Zusammenhang mit meinem Guthaben?',
     q_en: 'Why do I sometimes see the word "account" mentioned alongside my balance?',
-    a_de: <>Aus rein technischen Gründen legt unser Partner Noble Limited im Hintergrund einen einfachen Datensatz an, der Ihr Guthaben Ihrer E-Mail-Adresse zuordnet — dieser dient <strong>ausschließlich der Verwaltung Ihres EUROPAN-Guthabens</strong>. Es handelt sich dabei nicht um ein reguläres Bankkonto, es gibt keine Karte und keinen Kredit. Dieser Datensatz besteht, solange Sie Guthaben halten, und ist unabhängig von einer vollständigen Noble-Registrierung. Ansehen können Sie ihn jederzeit unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>.</>,
-    a_en: <>For purely technical reasons, our partner Noble Limited creates a simple record in the background that links your balance to your email address — this exists <strong>solely to manage your EUROPAN balance</strong>. It is not a regular bank account: there is no card and no credit involved. This record exists for as long as you hold a balance, independent of a full Noble registration. You can view it any time under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>.</>,
+    a_de: <>Aus rein technischen Gründen gibt es im Hintergrund einen einfachen Datensatz, der Ihre Punkte Ihrer E-Mail-Adresse zuordnet — dieser dient <strong>ausschließlich der Verwaltung Ihres EUROPAN-Guthabens</strong>. Es handelt sich dabei nicht um ein reguläres Bankkonto, es gibt keine Karte und keinen Kredit. Ansehen können Sie ihn jederzeit unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>.</>,
+    a_en: <>For purely technical reasons, there is a simple record in the background that links your points to your email address — this exists <strong>solely to manage your EUROPAN balance</strong>. It is not a regular bank account: there is no card and no credit involved. You can view it any time under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>.</>,
   },
   {
     id: 'check-balance',
@@ -51,13 +41,6 @@ const FAQS: Faq[] = [
     q_en: 'What is the Doppel-Wums bonus?',
     a_de: <>Wenn Ihr komplettes EUROPAN-Guthaben reicht, um eine Bestellung komplett zu bezahlen, erhalten Sie zusätzlich zum regulären EUROPAN-Bonus (2&nbsp;%) einen Doppel-Wums-Bonus von 3&nbsp;% obendrauf. Er gilt nur, wenn das Guthaben die Bestellung <strong>vollständig</strong> deckt — kein Teileinsatz.</>,
     a_en: <>If your full EUROPAN balance is enough to pay for an order completely, you get an extra Doppel-Wums bonus of 3% on top of the regular 2% EUROPAN bonus. It only applies when the balance covers the order <strong>in full</strong> — no partial use.</>,
-  },
-  {
-    id: 'full-registration',
-    q_de: 'Lohnt sich die vollständige Registrierung bei Noble Limited?',
-    q_en: 'Is a full Noble Limited registration worth it?',
-    a_de: <>Für reines EUROPAN-Guthaben nicht zwingend nötig. Eine vollständige Registrierung bei <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> lohnt sich, wenn Sie Zugriff auf die weiteren Noble-Netzwerkwährungen möchten. Sie können das jederzeit unabhängig von EUROPAN nachholen — mit derselben E-Mail-Adresse wird Ihr vorhandenes Guthaben dabei automatisch übernommen.</>,
-    a_en: <>Not strictly necessary for plain EUROPAN balance. A full registration at <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> is worth it if you want access to the other Noble network currencies. You can do this any time, independent of EUROPAN — using the same email will automatically carry your existing balance over.</>,
   },
   {
     id: 'regulation',
@@ -105,8 +88,8 @@ export default function FaqPage() {
           <span className="de-content">Häufige Fragen</span><span className="en-content">Frequently Asked Questions</span>
         </h1>
         <p style={{ color: 'var(--gray)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
-          <span className="de-content">Kurze Antworten zu EUROPAN-Guthaben, Ihrer E-Mail-Verknüpfung und der optionalen Registrierung bei Noble Limited.</span>
-          <span className="en-content">Short answers about EUROPAN balance, your email link, and the optional Noble Limited registration.</span>
+          <span className="de-content">Kurze Antworten zu Ihren EUROPAN-Punkten und Ihrem Konto.</span>
+          <span className="en-content">Short answers about your EUROPAN points and your account.</span>
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
