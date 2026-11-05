@@ -1,55 +1,6 @@
-'use client'
-import Link from 'next/link'
-import { ImpressumLink, DatenschutzLink } from '../../_legal/LegalLinks'
-import { useSearchParams } from 'next/navigation'
-import { Suspense, useEffect, useState } from 'react'
-import '../../globals.css'
+import { redirect } from 'next/navigation'
 
-function SuccessContent() {
-  const params = useSearchParams()
-  const ep = params.get('ep') || '0'
-  const email = params.get('email') || ''
-
-  const [lang, setLang] = useState('de')
-  useEffect(() => {
-    const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
-    setLang(l)
-    ;(window as any).setLang?.(l)
-  }, [])
-
-  return (
-    <div style={{ minHeight: '100vh', background: 'var(--snow)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-      <div style={{ maxWidth: '480px', textAlign: 'center' }}>
-        <div style={{ width: '72px', height: '72px', background: 'rgba(27,107,58,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem', fontSize: '1.75rem' }}>✓</div>
-        <div style={{ fontFamily: 'var(--ff-d)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>
-          <span className="de-content">Zahlung erfolgreich</span><span className="en-content">Payment Successful</span>
-        </div>
-        <p style={{ color: 'var(--gray)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-          <span className="de-content">Ihr Guthaben von <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> wurde{email && <> unter {email}</>} gutgeschrieben.</span>
-          <span className="en-content">Your balance of <strong style={{ color: 'var(--green)' }}>{parseFloat(ep).toFixed(2)} EP</strong> has been credited{email && <> under {email}</>}.</span>
-        </p>
-        <p style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.75, marginBottom: '2.5rem' }}>
-          <span className="de-content">Setzen Sie Ihr EUROPAN auf shop.pan21.com für den Doppel-Wums-Bonus ein — 5 % zurück bei jedem mit EP bezahlten Kauf.</span>
-          <span className="en-content">Use your EUROPAN on shop.pan21.com for the Doppel-Wums bonus — 5% back on every purchase paid with EP.</span>
-        </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href={`https://accounts.europan.group/dashboard?lang=${lang}`} target="_blank" rel="noopener" className="btn-green"><span className="de-content">Konto ansehen →</span><span className="en-content">View your account →</span></a>
-          <a href="https://shop.pan21.com" target="_blank" rel="noopener" className="btn-outline-green">PAN21 Shop →</a>
-          <Link href="/" className="btn-ghost"><span className="de-content">← Zurück</span><span className="en-content">← Back</span></Link>
-        </div>
-        <div className="legal-links" style={{ marginTop: '2rem' }}>
-          <ImpressumLink />
-          <DatenschutzLink />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default function SuccessPage() {
-  return (
-    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading…</div>}>
-      <SuccessContent />
-    </Suspense>
-  )
+// EUROPAN can no longer be bought, so there is no purchase to confirm here.
+export default function BuySuccessPage() {
+  redirect('/bonus')
 }

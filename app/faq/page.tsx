@@ -11,23 +11,23 @@ const FAQS: Faq[] = [
     id: 'what-is-europan',
     q_de: 'Was ist EUROPAN eigentlich?',
     q_en: 'What actually is EUROPAN?',
-    a_de: <>EUROPAN (EP) ist ein <strong>Prepaid-Guthaben</strong> für das PAN21-Netzwerk. Sie kaufen Guthaben — 1&nbsp;€ Gutscheinwert entspricht 1&nbsp;€ EUROPAN — und setzen es direkt gegen den Preis von Buchungen bei teilnehmenden PAN21-Seiten ein, z.&nbsp;B. auf shop.pan21.com oder pan-office.de.</>,
-    a_en: <>EUROPAN (EP) is a <strong>prepaid balance</strong> for the PAN21 network. You purchase balance — €1 of voucher value equals €1 of EUROPAN — and redeem it directly against the price of bookings on participating PAN21 sites, e.g. shop.pan21.com or pan-office.de.</>,
+    a_de: <>EUROPAN (EP) ist ein <strong>Bonus- und Cashback-Punktesystem</strong>. Sie erhalten Punkte bei Käufen auf shop.pan21.com und setzen sie dort gegen den Preis von Bestellungen ein. 1&nbsp;EP hat bei der Einlösung einen Wert von 1,00&nbsp;€. EUROPAN kann nicht gekauft, nicht in Euro ausgezahlt und nicht übertragen werden.</>,
+    a_en: <>EUROPAN (EP) is a <strong>bonus and cashback points system</strong>. You receive points on purchases on shop.pan21.com and redeem them there against the price of orders. 1 EP has a redemption value of €1.00. EUROPAN cannot be bought, paid out in euro or transferred.</>,
   },
   {
     id: 'account-vs-balance',
-    q_de: 'Brauche ich ein Konto bei noble-limited.com, um EUROPAN zu kaufen?',
-    q_en: 'Do I need an account at noble-limited.com to buy EUROPAN?',
-    a_de: <>Nein. Für den Kauf reicht Ihre <strong>E-Mail-Adresse</strong> — mehr nicht. EUROPAN-Guthaben und eine vollständige Registrierung bei Noble Limited sind zwei unterschiedliche Dinge:
+    q_de: 'Brauche ich ein Konto bei noble-limited.com, um EUROPAN zu sammeln?',
+    q_en: 'Do I need an account at noble-limited.com to collect EUROPAN?',
+    a_de: <>Nein. Zum Sammeln reicht Ihre <strong>E-Mail-Adresse</strong> — mehr nicht. EUROPAN-Guthaben und eine vollständige Registrierung bei Noble Limited sind zwei unterschiedliche Dinge:
       <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.2rem', lineHeight: 1.8 }}>
-        <li><strong>EUROPAN-Guthaben</strong> — einfaches Prepaid-Guthaben, verknüpft mit Ihrer E-Mail. Kein Login, keine Unterlagen, keine Prüfung nötig.</li>
-        <li><strong>Noble-Registrierung</strong> — eine separate, vollständige Mitgliedschaft bei noble-limited.com mit Profil und Login, die Sie <em>optional</em> und unabhängig vom EUROPAN-Kauf einrichten können.</li>
+        <li><strong>EUROPAN-Guthaben</strong> — einfaches Punktekonto, verknüpft mit Ihrer E-Mail. Kein Login, keine Unterlagen, keine Prüfung nötig.</li>
+        <li><strong>Noble-Registrierung</strong> — eine separate, vollständige Mitgliedschaft bei noble-limited.com mit Profil und Login, die Sie <em>optional</em> und unabhängig von EUROPAN einrichten können.</li>
       </ul>
     </>,
-    a_en: <>No. Purchasing only requires your <strong>email address</strong> — nothing else. EUROPAN balance and a full Noble Limited registration are two separate things:
+    a_en: <>No. Collecting only requires your <strong>email address</strong> — nothing else. EUROPAN balance and a full Noble Limited registration are two separate things:
       <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.2rem', lineHeight: 1.8 }}>
-        <li><strong>EUROPAN balance</strong> — a simple prepaid balance linked to your email. No login, no documents, no review needed.</li>
-        <li><strong>Noble registration</strong> — a separate, full membership at noble-limited.com with a profile and login, which you can set up <em>optionally</em>, independent of buying EUROPAN.</li>
+        <li><strong>EUROPAN balance</strong> — a simple points account linked to your email. No login, no documents, no review needed.</li>
+        <li><strong>Noble registration</strong> — a separate, full membership at noble-limited.com with a profile and login, which you can set up <em>optionally</em>, independent of EUROPAN.</li>
       </ul>
     </>,
   },
@@ -42,8 +42,8 @@ const FAQS: Faq[] = [
     id: 'check-balance',
     q_de: 'Wie prüfe ich mein aktuelles Guthaben?',
     q_en: 'How do I check my current balance?',
-    a_de: <>Nach dem Kauf erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget auf shop.pan21.com. Guthaben und Buchungen sehen Sie außerdem unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>; dafür schicken wir Ihnen einen Anmeldelink an Ihre E-Mail-Adresse.</>,
-    a_en: <>After purchase you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on shop.pan21.com. You can also see your balance and bookings under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>; we send a sign-in link to your email address for this.</>,
+    a_de: <>Mit Ihrem ersten Bonus erhalten Sie per E-Mail eine 4-stellige PIN. Mit E-Mail + PIN können Sie Ihr Guthaben jederzeit auf teilnehmenden PAN21-Seiten abfragen, z.&nbsp;B. im EUROPAN-Bestellwidget auf shop.pan21.com. Guthaben und Buchungen sehen Sie außerdem unter <a href="https://accounts.europan.group/dashboard?lang=de" style={{ color: 'var(--gold)', fontWeight: 700 }}>Mein Konto</a>; dafür schicken wir Ihnen einen Anmeldelink an Ihre E-Mail-Adresse.</>,
+    a_en: <>With your first bonus you'll receive a 4-digit PIN by email. With email + PIN you can check your balance any time on participating PAN21 sites, e.g. in the EUROPAN order widget on shop.pan21.com. You can also see your balance and bookings under <a href="https://accounts.europan.group/dashboard?lang=en" style={{ color: 'var(--gold)', fontWeight: 700 }}>My account</a>; we send a sign-in link to your email address for this.</>,
   },
   {
     id: 'doppel-wums',
@@ -56,15 +56,15 @@ const FAQS: Faq[] = [
     id: 'full-registration',
     q_de: 'Lohnt sich die vollständige Registrierung bei Noble Limited?',
     q_en: 'Is a full Noble Limited registration worth it?',
-    a_de: <>Für reines EUROPAN-Guthaben nicht zwingend nötig. Eine vollständige Registrierung bei <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> lohnt sich, wenn Sie Zugriff auf die weiteren Noble-Netzwerkwährungen möchten. Sie können das jederzeit unabhängig vom EUROPAN-Kauf nachholen — mit derselben E-Mail-Adresse wird Ihr vorhandenes Guthaben dabei automatisch übernommen.</>,
-    a_en: <>Not strictly necessary for plain EUROPAN balance. A full registration at <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> is worth it if you want access to the other Noble network currencies. You can do this any time, independent of buying EUROPAN — using the same email will automatically carry your existing balance over.</>,
+    a_de: <>Für reines EUROPAN-Guthaben nicht zwingend nötig. Eine vollständige Registrierung bei <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> lohnt sich, wenn Sie Zugriff auf die weiteren Noble-Netzwerkwährungen möchten. Sie können das jederzeit unabhängig von EUROPAN nachholen — mit derselben E-Mail-Adresse wird Ihr vorhandenes Guthaben dabei automatisch übernommen.</>,
+    a_en: <>Not strictly necessary for plain EUROPAN balance. A full registration at <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" style={{ color: 'var(--gold)', fontWeight: 700 }}>noble-limited.com</a> is worth it if you want access to the other Noble network currencies. You can do this any time, independent of EUROPAN — using the same email will automatically carry your existing balance over.</>,
   },
   {
     id: 'regulation',
-    q_de: 'Ist EUROPAN reguliert oder handelt es sich um eine Geldanlage?',
-    q_en: 'Is EUROPAN regulated, or is it an investment?',
-    a_de: <>Nein. EUROPAN ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert. Es dient ausschließlich der Zahlung innerhalb des PAN21-Netzwerks.</>,
-    a_en: <>No. EUROPAN is a private network currency, not a regulated financial instrument or publicly traded asset. It exists solely for payment within the PAN21 network.</>,
+    q_de: 'Ist EUROPAN eine Geldanlage?',
+    q_en: 'Is EUROPAN an investment?',
+    a_de: <>Nein. EUROPAN ist ein Bonus- und Cashback-Punktesystem und kein gehandelter Vermögenswert. Die Punkte lassen sich nur im PAN21 Shop und auf unseren eigenen Seiten einlösen.</>,
+    a_en: <>No. EUROPAN is a bonus and cashback points system, not a traded asset. Points can only be redeemed in the PAN21 Shop and on our own sites.</>,
   },
 ]
 
@@ -94,7 +94,7 @@ export default function FaqPage() {
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
             </div>
-            <Link href="/buy" className="btn-green"><span className="de-content">EUROPAN kaufen</span><span className="en-content">Buy EUROPAN</span></Link>
+            <Link href="/bonus" className="btn-green"><span className="de-content">EUROPAN sammeln</span><span className="en-content">Collect EUROPAN</span></Link>
           </div>
         </div>
       </nav>
@@ -132,7 +132,7 @@ export default function FaqPage() {
 
       <footer style={{ borderTop: '1px solid var(--lgray)', padding: '2rem 1.5rem', textAlign: 'center' }}>
         <p style={{ fontSize: '0.72rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}>
-          © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited") · Eingetragen in Neuseeland · EUROPAN (EP) ist eine private Netzwerkwährung, kein reguliertes Finanzinstrument und kein öffentlich gehandelter Vermögenswert.</span><span className="en-content">Issued by Noble Private Capital Ltd (trading as "Noble Limited") · Registered in New Zealand · EUROPAN (EP) is a private network currency, not a regulated financial instrument or publicly traded asset.</span>
+          © {new Date().getFullYear()} EUROPAN · <span className="de-content">Herausgegeben von Noble Private Capital Ltd (handelnd als „Noble Limited") · Eingetragen in Neuseeland · EUROPAN (EP) ist ein Bonus- und Cashback-Punktesystem.</span><span className="en-content">Issued by Noble Private Capital Ltd (trading as "Noble Limited") · Registered in New Zealand · EUROPAN (EP) is a bonus and cashback points system.</span>
         </p>
         <div className="legal-links" style={{ marginTop: '1rem' }}>
           <Link href="/impressum"><span className="de-content">Impressum</span><span className="en-content">Legal notice</span></Link>
