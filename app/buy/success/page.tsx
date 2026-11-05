@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { ImpressumLink, DatenschutzLink } from '../../_legal/LegalLinks'
 import { useSearchParams } from 'next/navigation'
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import '../../globals.css'
 
 function SuccessContent() {
@@ -10,8 +10,10 @@ function SuccessContent() {
   const ep = params.get('ep') || '0'
   const email = params.get('email') || ''
 
+  const [lang, setLang] = useState('de')
   useEffect(() => {
     const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
+    setLang(l)
     ;(window as any).setLang?.(l)
   }, [])
 
@@ -31,7 +33,7 @@ function SuccessContent() {
           <span className="en-content">Use your EUROPAN on shop.pan21.com for the Doppel-Wums bonus — 5% back on every purchase paid with EP.</span>
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="https://noble-limited.com/dashboard" target="_blank" rel="noopener" className="btn-green"><span className="de-content">Dashboard ansehen →</span><span className="en-content">View Dashboard →</span></a>
+          <a href={`https://accounts.europan.group/dashboard?lang=${lang}`} target="_blank" rel="noopener" className="btn-green"><span className="de-content">Dashboard ansehen →</span><span className="en-content">View Dashboard →</span></a>
           <a href="https://shop.pan21.com" target="_blank" rel="noopener" className="btn-outline-green">PAN21 Shop →</a>
           <Link href="/" className="btn-ghost"><span className="de-content">← Zurück</span><span className="en-content">← Back</span></Link>
         </div>
