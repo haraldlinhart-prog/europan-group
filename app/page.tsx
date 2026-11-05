@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import AccountLink, { NavAccountLink } from './_account/AccountLink'
+import SuchmaschinenBlogLink from './_legal/SuchmaschinenBlogLink'
 import './home.css'
 
 const EP_RATE = 1.00
@@ -88,6 +89,7 @@ return (
             <li><Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link></li>
             <li><Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link></li>
             <li><Link href="/de/internet-stadt">Internet-Stadt</Link></li>
+            <li className="de-content"><SuchmaschinenBlogLink /></li>
             <li><Link href="/faq">FAQ</Link></li>
           </ul>
           <div className="nav-actions">
@@ -351,6 +353,7 @@ return (
             <Link href="#shop"><span className="de-content">Shop-Bonus</span><span className="en-content">Shop Bonus</span></Link>
             <Link href="#how"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link>
             <Link href="#contact"><span className="de-content">Kontakt</span><span className="en-content">Contact</span></Link>
+            <SuchmaschinenBlogLink className="de-content" />
             <Link href="/faq">FAQ</Link>
             <Link href="/impressum"><span className="de-content">Impressum</span><span className="en-content">Legal notice</span></Link>
             <Link href="/datenschutz"><span className="de-content">Datenschutz</span><span className="en-content">Privacy policy</span></Link>

@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { NavAccountLink } from '../_account/AccountLink'
+import SuchmaschinenBlogLink from '../_legal/SuchmaschinenBlogLink'
 import '../home.css'
 
 type Faq = { id: string; q_de: string; q_en: string; a_de: React.ReactNode; a_en: React.ReactNode }
@@ -72,6 +73,7 @@ export default function FaqPage() {
         <div className="nav-inner">
           <Link href="/" className="nav-logo">)( EUROPAN</Link>
           <div className="nav-actions">
+            <SuchmaschinenBlogLink className="de-content nav-account" />
             <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>

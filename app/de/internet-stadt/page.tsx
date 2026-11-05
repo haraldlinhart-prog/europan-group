@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import LegalFooter from '../../_legal/LegalLinks'
 import { NavAccountLink } from '../../_account/AccountLink'
+import SuchmaschinenBlogLink from '../../_legal/SuchmaschinenBlogLink'
 import '../../home.css'
 
 type Offer = {
@@ -88,6 +89,7 @@ export default function InternetStadtPage() {
             <img src="/europan-logo-header.png" alt="EUROPAN" style={{ height: '30px', width: 'auto', filter: 'invert(1)' }} />
           </Link>
           <div className="nav-actions">
+            <SuchmaschinenBlogLink className="de-content nav-account" />
             <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
