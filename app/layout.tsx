@@ -37,8 +37,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem('europan_lang')==='en')document.documentElement.classList.add('en');}catch(e){}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){
+  var l=new URLSearchParams(location.search).get('lang');
+  if(l==='en'||l==='de'){try{localStorage.setItem('europan_lang',l);}catch(e){}}
+  else{l=null;try{l=localStorage.getItem('europan_lang');}catch(e){}}
+  window.__europanLang=l==='en'?'en':'de';
+  if(l==='en')document.documentElement.classList.add('en');
+})();
 window.setLang=function(l){
+  window.__europanLang=l;
   document.documentElement.classList.toggle('en', l==='en');
   try{localStorage.setItem('europan_lang', l);}catch(e){}
   document.querySelectorAll('[data-lang-btn]').forEach(function(b){b.classList.toggle('active', b.getAttribute('data-lang-btn')===l);});
