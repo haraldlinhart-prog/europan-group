@@ -55,7 +55,7 @@ export default function HomePage() {
 
   const howSteps = [
     { title_de: 'Betrag wählen', title_en: 'Choose your amount', desc_de: 'Bis zu 1.000 € per Kreditkarte — sofortige Gutschrift. Darüber per Banküberweisung an Noble Private Capital Limited in Hongkong.', desc_en: 'Up to €1,000 by credit card — instant delivery. Above €1,000 by bank transfer to Noble Private Capital Limited in Hong Kong.' },
-    { title_de: 'Sicher bezahlen', title_en: 'Pay securely', desc_de: 'Kartenzahlungen über Stripe (Visa, Mastercard, Amex, Apple Pay). Bei Überweisungen bitte Ihre Noble-Konto-E-Mail als Verwendungszweck angeben.', desc_en: 'Card payments via Stripe (Visa, Mastercard, Amex, Apple Pay). Bank transfers reference your Noble account email for identification.' },
+    { title_de: 'Sicher bezahlen', title_en: 'Pay securely', desc_de: 'Kartenzahlungen über Stripe (Visa, Mastercard, Amex, Apple Pay). Bei Überweisungen bitte Ihre EUROPAN-Konto-E-Mail als Verwendungszweck angeben.', desc_en: 'Card payments via Stripe (Visa, Mastercard, Amex, Apple Pay). Bank transfers reference your EUROPAN account email for identification.' },
     { title_de: 'EUROPAN erhalten', title_en: 'Receive EUROPAN', desc_de: 'Ihr EP-Guthaben wird automatisch Ihrem Noble-Limited-Dashboard gutgeschrieben. Kartenzahlungen sofort — Überweisungen innerhalb von 1–3 Werktagen.', desc_en: 'Your EP balance is credited to your Noble Limited dashboard automatically. Card orders are instant — bank transfers within 1–3 business days.' },
     { title_de: 'Im Netzwerk & Shop einsetzen', title_en: 'Use in the network & shop', desc_de: 'Auf shop.pan21.com mit EP für den Doppel-Wums-Bonus bezahlen, an Noble-Mitglieder überweisen oder als stabilen privaten Wertspeicher ansammeln.', desc_en: 'Pay on shop.pan21.com with EP for the Doppel-Wums bonus, transfer to Noble members, or accumulate as a stable private store of value.' },
   ]
@@ -302,8 +302,8 @@ return (
             <h2 className="sec-title"><span className="de-content">Nehmen Sie <em>Kontakt auf</em></span><span className="en-content">Get in <em>Touch</em></span></h2>
             <div className="green-rule" />
             <p style={{ fontSize: '0.9rem', color: 'var(--gray)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              <span className="de-content">Fragen zu EUROPAN, Ihrem Noble-Konto oder dem PAN21-Shop-Bonussystem? Wir antworten innerhalb eines Werktags.</span>
-              <span className="en-content">Questions about EUROPAN, your Noble account, or the PAN21 Shop bonus system? We respond within one business day.</span>
+              <span className="de-content">Fragen zu EUROPAN, Ihrem EUROPAN-Konto oder dem PAN21-Shop-Bonussystem? Wir antworten innerhalb eines Werktags.</span>
+              <span className="en-content">Questions about EUROPAN, your EUROPAN account, or the PAN21 Shop bonus system? We respond within one business day.</span>
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
