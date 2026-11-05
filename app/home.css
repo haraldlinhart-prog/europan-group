@@ -10,7 +10,7 @@
 }
 /* Hero image: people on the right, faded empty space on the left for the text */
 .hero-bg { position: absolute; inset: 68px 0 0; }
-.hero-bg img { object-fit: cover; object-position: right center; }
+.hero-bg img { object-fit: cover; object-position: right top; }
 
 .hero-inner {
   display: grid;
