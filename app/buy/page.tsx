@@ -12,7 +12,7 @@ const BANK = {
   SWIFT: 'CITIHKHX',
   Account: '390206957',
   Currency: 'EUR',
-  Reference: 'EP Purchase — [Your Noble Account Email]',
+  Reference: 'EP Purchase — [Your EUROPAN Account Email]',
 }
 
 export default function BuyPage() {
