@@ -1,26 +1,18 @@
-# EUROPAN (EP) — Private European Digital Currency
+# EUROPAN (EP) — Bonus and Cashback Points
 
-EUROPAN (EP) is a private digital currency issued within the Noble Limited private investment network.
+EUROPAN (EP) is a bonus and cashback points system.
 
 ## What is EUROPAN?
-- EUROPAN (EP) is the private European utility currency for Noble Limited members
-- 1 EP = €1.00 EUR (fixed rate, no volatility)
-- Not listed on any public exchange
-- Issued and managed by Noble Limited, registered in England and Wales
+- Points are collected on purchases in the PAN21 Shop and redeemed there and on our own sites
+- 1 EP has a redemption value of EUR 1.00
+- Points cannot be bought, paid out in euro or transferred to others
+- Not listed on any exchange and not traded
 
-## Unique Feature: PAN21 Shop Integration
-- Every purchase on shop.pan21.com earns 2% EUROPAN bonus
-- Paying with EUROPAN on shop.pan21.com activates the "Doppel-Wums": 5% EUROPAN back
-- Affiliate purchases earn the referrer 5% EUROPAN commission
-
-## How to Buy
-- Up to €1,000: credit card via Stripe — instant
-- Above €1,000: bank transfer to Noble Private Capital Limited, Citibank Hong Kong, SWIFT: CITIHKHX
-
-## Noble Network
-EUROPAN is one of four Noble currencies alongside N-Coin, SwissyCash and CryptoCoin.
-coin_id for Noble API: "europan"
+## How to collect
+- Every purchase on shop.pan21.com earns a 2% EUROPAN bonus
+- Paying the full order value with EUROPAN adds the Doppel-Wums bonus: 5% back in total
+- Purchases through an affiliate link earn the referrer 5% in EUROPAN
+- Details: https://www.europan.group/bonus
 
 ## Keywords
-EUROPAN, EP, European digital currency, private cryptocurrency, virtual currency, noble network,
-shop bonus, Doppel-Wums, PAN21, Kryptowährung Europa, digitale Währung
+EUROPAN, EP, bonus points, cashback points, shop bonus, Doppel-Wums, PAN21

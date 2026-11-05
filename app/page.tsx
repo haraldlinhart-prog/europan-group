@@ -43,7 +43,7 @@ export default function HomePage() {
 
   const props = [
     { icon: '🛒', title_de: 'Shop-Bonus', title_en: 'Shop Bonus', desc_de: 'Jeder Kauf auf shop.pan21.com bringt 2% EUROPAN. Mit EUROPAN bezahlen aktiviert den Doppel-Wums: 5% zurück.', desc_en: 'Every purchase on shop.pan21.com earns 2% EUROPAN. Pay with EUROPAN to activate the Doppel-Wums: 5% back.' },
-    { icon: '🔒', title_de: 'Nur privates Netzwerk', title_en: 'Private Network Only', desc_de: 'EUROPAN wird nicht gehandelt und nur im PAN21 Shop und auf unseren eigenen Seiten eingesetzt.', desc_en: 'EUROPAN is not traded and is used only in the PAN21 Shop and on our own sites.' },
+    { icon: '🔒', title_de: 'Nur auf eigenen Seiten', title_en: 'Own Sites Only', desc_de: 'EUROPAN wird nicht gehandelt und gilt nur im PAN21 Shop und auf unseren eigenen Seiten.', desc_en: 'EUROPAN is not traded and is valid only in the PAN21 Shop and on our own sites.' },
     { icon: '⚡', title_de: 'Punkte einlösen', title_en: 'Redeem Points', desc_de: 'Setzen Sie EP im PAN21 Shop ein. Ihr Punktestand aktualisiert sich in Echtzeit in Ihrem EUROPAN-Konto.', desc_en: 'Use EP in the PAN21 Shop. Your points update in real time in your EUROPAN account.' },
     { icon: '🇪🇺', title_de: 'Europäische Identität', title_en: 'European Identity', desc_de: 'Konzipiert für europäische Gründer, Investoren und Unternehmen im PAN21-Netzwerk.', desc_en: 'Designed for European entrepreneurs, investors and businesses within the PAN21 network.' },
   ]
@@ -62,12 +62,11 @@ export default function HomePage() {
   ]
 
   const trustCards = [
-    { title_de: 'Herausgegeben von Noble Limited', title_en: 'Issued by Noble Limited', text_de: 'EUROPAN wird von Noble Private Capital Ltd (handelnd als „Noble Limited") herausgegeben und verwaltet, eingetragen in Neuseeland. Alle Guthaben, Transaktionen und Gutschriften laufen über die Noble-Plattform.', text_en: 'EUROPAN is issued and managed by Noble Private Capital Ltd (trading as "Noble Limited"), registered in New Zealand. All balances, transactions and credits are handled through the Noble platform.' },
-    { title_de: 'Einlösewert 1,00 € je EP', title_en: 'Redemption value €1.00 per EP', text_de: '1 EP hat bei der Einlösung einen Wert von 1,00 €. Keine Kursschwankungen, keine Gas Fees.', text_en: '1 EP has a redemption value of €1.00. No price swings, no gas fees.' },
-    { title_de: 'Nicht öffentlich gehandelt', title_en: 'Not Publicly Traded', text_de: 'EUROPAN ist an keiner Börse notiert. Seine Stabilität ergibt sich gerade aus dem geschlossenen Netzwerkcharakter — es wird nur innerhalb des Netzwerks eingesetzt.', text_en: 'EUROPAN is not listed on any exchange. Its stability comes precisely from its closed-network character — it is used only within the network.' },
+    { title_de: 'Einlösewert 1,00 € je EP', title_en: 'Redemption value €1.00 per EP', text_de: '1 EP hat bei der Einlösung einen Wert von 1,00 €.', text_en: '1 EP has a redemption value of €1.00.' },
+    { title_de: 'Nicht handelbar', title_en: 'Not Tradable', text_de: 'EUROPAN ist an keiner Börse notiert und wird nicht gehandelt. Die Punkte gelten nur im PAN21 Shop und auf unseren eigenen Seiten.', text_en: 'EUROPAN is not listed on any exchange and is not traded. Points are valid only in the PAN21 Shop and on our own sites.' },
     { title_de: 'Verdient, nicht gekauft', title_en: 'Earned, Not Bought', text_de: 'EUROPAN kann nicht gegen Geld gekauft, nicht in Euro ausgezahlt und nicht auf andere übertragen werden.', text_en: 'EUROPAN cannot be bought for money, paid out in euro or transferred to others.' },
     { title_de: 'Shop-integrierter Bonus', title_en: 'Shop-Integrated Bonus', text_de: 'EUROPAN ist direkt in shop.pan21.com eingebunden — Sie erhalten EP bei jedem Kauf.', text_en: 'EUROPAN is built directly into shop.pan21.com — earning you EP on every purchase.' },
-    { title_de: 'API-gestützte Guthaben', title_en: 'API-Backed Balances', text_de: 'Jedes EP-Guthaben wird in der Noble-Limited-Plattform geführt, 24/7 über Ihr sicheres EUROPAN-Konto einsehbar. Vollständig nachvollziehbar.', text_en: 'Every EP balance is maintained in the Noble Limited platform, accessible 24/7 via your secure EUROPAN account. Fully auditable.' },
+    { title_de: 'Nachvollziehbare Buchungen', title_en: 'Traceable Bookings', text_de: 'Ihren Punktestand und Ihre Buchungen sehen Sie jederzeit in Ihrem EUROPAN-Konto.', text_en: 'You can see your points and bookings at any time in your EUROPAN account.' },
   ]
 
   
@@ -109,14 +108,14 @@ return (
         </div>
         <div className="container hero-inner">
           <div className="hero-text">
-            <div className="hero-kicker">🇪🇺 <span className="de-content">Nobles privates Währungsnetzwerk</span><span className="en-content">Noble Private Currency Network</span></div>
+            <div className="hero-kicker">🇪🇺 <span className="de-content">Bonus- und Cashback-Programm</span><span className="en-content">Bonus and Cashback Programme</span></div>
             <h1 className="hero-h1">
-              <span className="de-content">EUROPAN —<br /><em>Die europäische</em><br />Privatwährung</span>
-              <span className="en-content">EUROPAN —<br /><em>The European</em><br />Private Currency</span>
+              <span className="de-content">EUROPAN —<br /><em>Punkte sammeln,</em><br />im Shop einlösen</span>
+              <span className="en-content">EUROPAN —<br /><em>Collect points,</em><br />redeem in the shop</span>
             </h1>
             <p className="hero-sub">
-              <span className="de-content">EUROPAN (EP) ist die private europäische Digitalwährung des Noble-Netzwerks. Stabil, privat und einzigartig verbunden mit dem PAN21-Shop-Bonussystem.</span>
-              <span className="en-content">EUROPAN (EP) is the private European digital currency of the Noble network. Stable, private, and uniquely linked to the PAN21 Shop bonus system.</span>
+              <span className="de-content">EUROPAN (EP) ist ein Bonus- und Cashback-Punktesystem. Sie erhalten Punkte bei Ihren Einkäufen im PAN21 Shop und lösen sie dort wieder ein.</span>
+              <span className="en-content">EUROPAN (EP) is a bonus and cashback points system. You receive points on your purchases in the PAN21 Shop and redeem them there.</span>
             </p>
             <div className="hero-actions">
               <Link href="/bonus" className="btn-green-lg"><span className="de-content">So sammeln Sie EUROPAN →</span><span className="en-content">How to collect EUROPAN →</span></Link>
@@ -161,25 +160,24 @@ return (
           <div className="about-text">
             <span className="eyebrow"><span className="de-content">Was ist EUROPAN?</span><span className="en-content">What is EUROPAN?</span></span>
             <h2 className="sec-title">
-              <span className="de-content">Europäische Privatwährung<br /><em>Für ein privates Netzwerk</em></span>
-              <span className="en-content">European Private Currency<br /><em>For a Private Network</em></span>
+              <span className="de-content">Bonuspunkte<br /><em>Für Ihre Einkäufe</em></span>
+              <span className="en-content">Bonus Points<br /><em>For Your Purchases</em></span>
             </h2>
             <div className="green-rule" />
             <p>
-              <span className="de-content">EUROPAN (EP) ist die private europäische Nutzwährung des Investmentnetzwerks von Noble Limited. Nicht an einer öffentlichen Börse gehandelt, nicht spekulativ — eine stabile private Digitalwährung für dieses Netzwerk.</span>
-              <span className="en-content">EUROPAN (EP) is the private European utility currency of Noble Limited's investment network. Not traded on any public exchange, not speculative — a stable private digital currency for this network.</span>
+              <span className="de-content">EUROPAN (EP) ist ein Bonus- und Cashback-Punktesystem. Die Punkte können nicht gekauft, nicht in Euro ausgezahlt und nicht auf andere übertragen werden.</span>
+              <span className="en-content">EUROPAN (EP) is a bonus and cashback points system. Points cannot be bought, paid out in euro or transferred to others.</span>
             </p>
             <p style={{ marginTop: '1rem' }}>
-              <span className="de-content">Was EUROPAN unter den vier Noble-Währungen einzigartig macht, ist die direkte Verbindung zum PAN21-Shop: Jeder Kauf auf shop.pan21.com bringt Ihnen EUROPAN — und die Zahlung mit EUROPAN aktiviert den Doppel-Wums-Bonus von 5% zurück.</span>
-              <span className="en-content">What makes EUROPAN unique among the four Noble currencies is its direct connection to the PAN21 Shop: every purchase on shop.pan21.com earns you EUROPAN — and paying with EUROPAN activates the Doppel-Wums bonus of 5% back.</span>
+              <span className="de-content">Jeder Kauf auf shop.pan21.com bringt Ihnen EUROPAN — und die Zahlung mit EUROPAN aktiviert den Doppel-Wums-Bonus von 5% zurück.</span>
+              <span className="en-content">Every purchase on shop.pan21.com earns you EUROPAN — and paying with EUROPAN activates the Doppel-Wums bonus of 5% back.</span>
             </p>
             <p style={{ marginTop: '1rem' }}>
-              <span className="de-content">Ihr Guthaben sehen Sie jederzeit in Ihrem EUROPAN-Konto. Wer zusätzlich Noble-Mitglied ist, hält EUROPAN neben N-Coin, SwissyCash und CryptoCoin im Noble-Dashboard.</span>
-              <span className="en-content">You can see your balance any time in your EUROPAN account. If you are also a Noble member, you hold EUROPAN alongside N-Coin, SwissyCash and CryptoCoin in the Noble dashboard.</span>
+              <span className="de-content">Ihr Guthaben sehen Sie jederzeit in Ihrem EUROPAN-Konto.</span>
+              <span className="en-content">You can see your balance any time in your EUROPAN account.</span>
             </p>
             <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/bonus" className="btn-green"><span className="de-content">So sammeln Sie EUROPAN →</span><span className="en-content">How to collect EUROPAN →</span></Link>
-              <a href="https://noble-limited.com/membership" target="_blank" rel="noopener" className="btn-outline-green"><span className="de-content">Noble-Mitgliedschaft</span><span className="en-content">Noble Membership</span></a>
             </div>
           </div>
           <div className="about-props">
@@ -199,8 +197,8 @@ return (
         <div className="container">
           <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.5)' }}><span className="de-content">PAN21-Shop-Integration</span><span className="en-content">PAN21 Shop Integration</span></span>
           <h2 style={{ fontFamily: 'var(--ff-d)', fontSize: 'clamp(1.8rem,3vw,2.5rem)', fontWeight: 700, color: '#fff', marginBottom: '0.75rem', lineHeight: 1.2 }}>
-            <span className="de-content">EUROPAN ist die Bonus-Währung<br />des PAN21 Shops</span>
-            <span className="en-content">EUROPAN is the bonus currency<br />of the PAN21 Shop</span>
+            <span className="de-content">EUROPAN ist das Bonusprogramm<br />des PAN21 Shops</span>
+            <span className="en-content">EUROPAN is the bonus programme<br />of the PAN21 Shop</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', maxWidth: '520px', lineHeight: 1.8 }}>
             <span className="de-content">Firmengründungen, Gesellschaftsverwaltung und internationale Strukturen — alle Produkte auf shop.pan21.com belohnen Sie mit EUROPAN.</span>
@@ -231,7 +229,7 @@ return (
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <span className="eyebrow"><span className="de-content">So sammeln Sie</span><span className="en-content">How to Collect</span></span>
-            <h2 className="sec-title"><span className="de-content">Einfach. <em>Europäisch. Privat.</em></span><span className="en-content">Simple. <em>European. Private.</em></span></h2>
+            <h2 className="sec-title"><span className="de-content">Sammeln. <em>Ansehen. Einlösen.</em></span><span className="en-content">Collect. <em>View. Redeem.</em></span></h2>
           </div>
           <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <div style={{ flex: '0 1 320px', minWidth: '220px' }}>
@@ -265,8 +263,8 @@ return (
         <div className="container">
           <div style={{ marginBottom: '3.5rem' }}>
             <span className="eyebrow"><span className="de-content">Vertrauen & Sicherheit</span><span className="en-content">Trust & Security</span></span>
-            <h2 className="sec-title"><span className="de-content">Stabil. <em>Privat. Dokumentiert.</em></span><span className="en-content">Stable. <em>Private. Documented.</em></span></h2>
-            <p className="sec-sub"><span className="de-content">EUROPAN basiert auf derselben Infrastruktur wie N-Coin, SwissyCash und CryptoCoin — mit der zusätzlichen Dimension der PAN21-Shop-Integration.</span><span className="en-content">EUROPAN is built on the same infrastructure as N-Coin, SwissyCash and CryptoCoin — with the added dimension of the PAN21 Shop integration.</span></p>
+            <h2 className="sec-title"><span className="de-content">Einfach. <em>Klar. Nachvollziehbar.</em></span><span className="en-content">Simple. <em>Clear. Traceable.</em></span></h2>
+            <p className="sec-sub"><span className="de-content">Was für Ihre Punkte gilt, auf einen Blick.</span><span className="en-content">What applies to your points, at a glance.</span></p>
           </div>
           <div className="trust-grid">
             {trustCards.map(c => (
@@ -275,27 +273,6 @@ return (
                 <p className="trust-text"><span className="de-content">{c.text_de}</span><span className="en-content">{c.text_en}</span></p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Noble banner */}
-      <section className="noble-banner">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <span className="eyebrow" style={{ color: 'rgba(76,175,125,0.6)' }}><span className="de-content">Noble-Währungsnetzwerk</span><span className="en-content">Noble Currency Network</span></span>
-          <h2 style={{ fontFamily: 'var(--ff-d)', fontSize: 'clamp(1.6rem,3vw,2.5rem)', fontWeight: 400, color: '#fff', marginBottom: '1rem', lineHeight: 1.2 }}>
-            <span className="de-content">EUROPAN ist eine von vier privaten Währungen<br />von Noble Limited</span>
-            <span className="en-content">EUROPAN is one of four private currencies<br />issued by Noble Limited</span>
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.9rem', maxWidth: '480px', margin: '0 auto 2.5rem', lineHeight: 1.8 }}>
-            <span className="de-content">Noble-Mitglieder verwalten EUROPAN, N-Coin, SwissyCash und CryptoCoin in einem einzigen Dashboard.</span>
-            <span className="en-content">Noble members hold EUROPAN, N-Coin, SwissyCash and CryptoCoin in a single dashboard.</span>
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://www.noble-limited.com/join?src=europan" target="_blank" rel="noopener" className="btn-green"><span className="de-content">Noble-Mitgliedschaft beantragen →</span><span className="en-content">Apply for Noble Membership →</span></a>
-            <a href="https://n-coins.net" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>N-Coin ↗</a>
-            <a href="https://swissycash.com" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>SwissyCash ↗</a>
-            <a href="https://crypto-coins.org" target="_blank" rel="noopener" className="btn-outline-green" style={{ borderColor: 'rgba(76,175,125,0.4)', color: 'rgba(76,175,125,0.8)' }}>CryptoCoin ↗</a>
           </div>
         </div>
       </section>
@@ -315,7 +292,6 @@ return (
               {[
                 { label_de: 'E-Mail', label_en: 'Email', val: 'info@europan.group', href: 'mailto:info@europan.group' },
                 { label_de: 'Shop', label_en: 'Shop', val: 'shop.pan21.com', href: 'https://shop.pan21.com' },
-                { label_de: 'Netzwerk', label_en: 'Network', val: 'noble-limited.com', href: 'https://noble-limited.com' },
               ].map(c => (
                 <div key={c.label_en} style={{ display: 'flex', gap: '1rem', fontSize: '0.875rem', color: 'var(--gray)' }}>
                   <span style={{ fontWeight: 600, color: 'var(--charcoal)', minWidth: '70px' }}><span className="de-content">{c.label_de}</span><span className="en-content">{c.label_en}</span></span>
@@ -346,7 +322,6 @@ return (
                     <option value="EUROPAN Bonus">EUROPAN-Bonus</option>
                     <option value="Account / Balance">Konto / Guthaben</option>
                     <option value="Shop Bonus">PAN21 Shop-Bonus</option>
-                    <option value="Noble Membership">Noble-Mitgliedschaft</option>
                     <option value="Other">Sonstiges</option>
                   </select>
                 </div>
@@ -379,7 +354,6 @@ return (
             <Link href="/faq">FAQ</Link>
             <Link href="/impressum"><span className="de-content">Impressum</span><span className="en-content">Legal notice</span></Link>
             <Link href="/datenschutz"><span className="de-content">Datenschutz</span><span className="en-content">Privacy policy</span></Link>
-            <a href="https://noble-limited.com" target="_blank" rel="noopener">Noble Limited</a>
             <a href="https://shop.pan21.com" target="_blank" rel="noopener">PAN21 Shop</a>
           </div>
           <p className="footer-legal">

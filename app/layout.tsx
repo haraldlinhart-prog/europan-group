@@ -5,28 +5,22 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.europan.group/'),
   title: {
-    default: 'EUROPAN (EP) — Private Digital Currency | europan.group',
+    default: 'EUROPAN (EP) — Bonus and Cashback Points | europan.group',
     template: '%s | EUROPAN',
   },
   description:
-    'EUROPAN (EP) is the European private digital currency of the Noble Limited network. Earn EUROPAN points on purchases in the PAN21 Shop. A stable private virtual currency for the Noble and PAN21 network.',
+    'EUROPAN (EP) is a bonus and cashback points system. Collect points on purchases in the PAN21 Shop and redeem them there. Points cannot be bought, paid out or transferred.',
   keywords: [
-    'EUROPAN', 'EP', 'europan.group', 'private digital currency Europe',
-    'cryptocurrency', 'crypto', 'digital currency', 'virtual currency', 'private cryptocurrency',
-    'European digital currency', 'digital asset', 'crypto token', 'utility token',
-    'private coin', 'digital coin', 'noble network', 'Noble Limited', 'member currency',
-    'internal currency', 'network token', 'stable private currency',
-    'crypto payment Europe', 'digital payment EU',
-    'Europäische Digitalwährung', 'Kryptowährung Europa', 'digitale Währung',
-    'virtuelle Währung', 'private Kryptowährung', 'Netzwerkwährung',
-    'EUROPAN bonus', 'shop bonus', 'PAN21', 'pan21.com',
+    'EUROPAN', 'EP', 'europan.group', 'bonus points', 'cashback points', 'shop bonus',
+    'Bonuspunkte', 'Cashback', 'Punkte sammeln', 'Bonusprogramm',
+    'PAN21', 'pan21.com', 'PAN21 Shop',
   ],
   openGraph: {
     type: 'website',
     url: 'https://www.europan.group/',
     siteName: 'EUROPAN',
-    title: 'EUROPAN (EP) — The European Private Digital Currency',
-    description: 'EUROPAN (EP) — the private European digital currency of the Noble network. Stable and secure.',
+    title: 'EUROPAN (EP) — Bonus and Cashback Points',
+    description: 'Collect EUROPAN points on purchases in the PAN21 Shop and redeem them there.',
     locale: 'en_GB',
   },
   robots: { index: true, follow: true },
@@ -52,14 +46,12 @@ window.setLang=function(l){
 };` }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "FinancialProduct",
+          "@type": "Service",
           "name": "EUROPAN",
           "alternateName": ["EP", "EUROPAN EP"],
-          "description": "EUROPAN (EP) is a private European digital currency issued within the Noble Limited private investment network. 1 EP = €1.00 EUR. Fixed rate, no volatility.",
+          "description": "EUROPAN (EP) is a bonus and cashback points system. Points are collected on purchases in the PAN21 Shop and redeemed there. They cannot be bought, paid out or transferred.",
           "url": "https://www.europan.group/",
-          "provider": { "@type": "Organization", "name": "Noble Limited", "url": "https://noble-limited.com" },
-          "feesAndCommissionsSpecification": "1 EP = €1.00 EUR — Fixed rate",
-          "category": "Private Digital Currency / European Virtual Currency",
+          "category": "Customer bonus programme",
         })}} />
         <meta name="ai-crawlers" content="allowed" />
         <script src="https://pan-finanzvertrieb.de/pan-ref.js" />
