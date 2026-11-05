@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { NavAccountLink } from '../_account/AccountLink'
+import SuchmaschinenBlogLink from './SuchmaschinenBlogLink';
 
 export default function LegalShell({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -22,6 +23,8 @@ export default function LegalShell({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </div>
+        {/* suchmaschinen.pro:blog-link */}
+        <SuchmaschinenBlogLink />
       </nav>
 
       <main className="legal-page">{children}</main>
