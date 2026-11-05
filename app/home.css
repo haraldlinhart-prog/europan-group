@@ -14,8 +14,8 @@
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr;
+  width: 100%;
   align-items: center;
   padding: 5rem 2rem;
   position: relative;
@@ -55,7 +55,15 @@
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* Coin visual */
-.coin-display { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.hero-text { position: relative; }
+/* Sits right of the paragraph and buttons, in the free space before the people in the image */
+.coin-display { position: absolute; left: calc(420px + 1.5rem); bottom: 0; width: 176px; height: 176px; }
+.coin-display .ep-coin-wrap { transform: scale(0.8); transform-origin: left bottom; }
+@media (max-width: 1399px) {
+  .coin-display { left: calc(420px + 1rem); width: 154px; height: 154px; }
+  .coin-display .ep-coin-wrap { transform: scale(0.7); }
+}
+@media (max-width: 1279px) { .coin-display { display: none; } }
 
 .ep-coin-wrap { position: relative; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; }
 /* Rotating ring */
@@ -90,21 +98,6 @@
 }
 .ep-symbol { font-family: var(--ff-d); font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1; }
 .ep-name   { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-top: 5px; }
-
-/* Info card */
-.ep-info-card {
-  background: var(--white);
-  border: 1px solid var(--lgray);
-  border-left: 3px solid var(--green);
-  padding: 1.25rem 1.5rem;
-  width: 100%;
-  max-width: 280px;
-  border-radius: 0 8px 8px 0;
-}
-.ep-info-row { display: flex; flex-direction: column; gap: 3px; padding: 0.6rem 0; border-bottom: 1px solid var(--lgray); }
-.ep-info-row:last-child { border-bottom: none; }
-.ep-info-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.ep-info-val   { font-family: var(--ff-d); font-size: 1.1rem; font-weight: 700; color: var(--charcoal); }
 
 /* Stats bar */
 .stats-bar { background: var(--green); padding: 1.25rem 0; }

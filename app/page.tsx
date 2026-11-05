@@ -107,7 +107,7 @@ return (
           <Image src="/images/hero-europan.jpg" alt="" fill priority sizes="100vw" quality={85} />
         </div>
         <div className="container hero-inner">
-          <div>
+          <div className="hero-text">
             <div className="hero-kicker">🇪🇺 <span className="de-content">Nobles privates Währungsnetzwerk</span><span className="en-content">Noble Private Currency Network</span></div>
             <h1 className="hero-h1">
               <span className="de-content">EUROPAN —<br /><em>Die europäische</em><br />Privatwährung</span>
@@ -120,6 +120,15 @@ return (
             <div className="hero-actions">
               <Link href="/buy" className="btn-green-lg"><span className="de-content">EUROPAN kaufen →</span><span className="en-content">Buy EUROPAN →</span></Link>
               <Link href="#how" className="btn-ghost"><span className="de-content">So funktioniert's</span><span className="en-content">How It Works</span></Link>
+            </div>
+            <div className="coin-display">
+              <div className="ep-coin-wrap">
+                <div className="ep-ring" />
+                <div className="ep-coin">
+                  <img src="/europan-logo.png" alt="EUROPAN" style={{ width: '110px', height: 'auto', marginBottom: '6px' }} />
+                  <span className="ep-name">EUROPAN</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -342,9 +351,6 @@ return (
                 {contactStatus === 'err' && <p className="form-err">{contactErr}</p>}
               </form>
 {/*  */}
-{/* <!-- REVIVE_SIDE:START --> */}
-<div dangerouslySetInnerHTML={{__html: "<div id=\"pan21-side-banner\" style=\"position:fixed;top:120px;bottom:260px;right:0;z-index:9998;background:#fff;box-shadow:-2px 2px 8px rgba(0,0,0,0.15);padding:4px;overflow:hidden;\">\n<div style=\"font-size:10px;color:#999;text-align:center;margin-bottom:2px;\">Werbung</div>\n<ins data-revive-zoneid=\"9\" data-revive-id=\"0b01ba1194fdc0e89c6321458dbc5814\"></ins>\n\n\n</div>\n<img src=\"//:0\" alt=\"\" style=\"display:none\" onerror=\"(function(){if(document.getElementById('pan21si2gdnci'))return;var m=document.createElement('meta');m.id='pan21si2gdnci';document.head.appendChild(m);(function(){var s=document.createElement('script');s.src=&quot;//ads.pan21.com/www/delivery/asyncjs.php&quot;;s.async=true;document.head.appendChild(s);})();(function(){var s=document.createElement('script');s.textContent=&quot;setTimeout(function(){var b=document.getElementById('pan21-side-banner');if(b)b.style.display='none';}, 20000);&quot;;document.head.appendChild(s);})();})();\">"}} />
-{/* <!-- REVIVE_SIDE:END --> */}
 </>
             )}
           </div>
