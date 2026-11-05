@@ -43,8 +43,8 @@ export default function HomePage() {
 
   const props = [
     { icon: '🛒', title_de: 'Shop-Bonuswährung', title_en: 'Shop Bonus Currency', desc_de: 'Jeder Kauf auf shop.pan21.com bringt 2% EUROPAN. Mit EUROPAN bezahlen aktiviert den Doppel-Wums: 5% zurück.', desc_en: 'Every purchase on shop.pan21.com earns 2% EUROPAN. Pay with EUROPAN to activate the Doppel-Wums: 5% back.' },
-    { icon: '🔒', title_de: 'Nur privates Netzwerk', title_en: 'Private Network Only', desc_de: 'EUROPAN wird nicht öffentlich gehandelt. Zugang ausschließlich für verifizierte Noble-Limited-Mitglieder.', desc_en: 'EUROPAN is not publicly traded. Access is exclusively for verified Noble Limited members.' },
-    { icon: '⚡', title_de: 'Sofortige Überweisungen', title_en: 'Instant Transfers', desc_de: 'EP sofort an jedes Noble-Mitglied überweisen. Guthaben aktualisiert sich in Echtzeit im Noble-Dashboard.', desc_en: 'Transfer EP to any Noble member instantly. Balances update in real time on your Noble dashboard.' },
+    { icon: '🔒', title_de: 'Nur privates Netzwerk', title_en: 'Private Network Only', desc_de: 'EUROPAN wird nicht öffentlich gehandelt und nur innerhalb des Netzwerks eingesetzt. Zum Kauf reicht Ihre E-Mail-Adresse.', desc_en: 'EUROPAN is not publicly traded and is used only within the network. All you need to buy it is your email address.' },
+    { icon: '⚡', title_de: 'Sofortige Überweisungen', title_en: 'Instant Transfers', desc_de: 'EP sofort an jedes Noble-Mitglied überweisen. Guthaben aktualisiert sich in Echtzeit in Ihrem EUROPAN-Konto.', desc_en: 'Transfer EP to any Noble member instantly. Balances update in real time in your EUROPAN account.' },
     { icon: '🇪🇺', title_de: 'Europäische Identität', title_en: 'European Identity', desc_de: 'Konzipiert für europäische Gründer, Investoren und Unternehmen im PAN21-Netzwerk.', desc_en: 'Designed for European entrepreneurs, investors and businesses within the PAN21 network.' },
   ]
 
@@ -64,10 +64,10 @@ export default function HomePage() {
   const trustCards = [
     { title_de: 'Herausgegeben von Noble Limited', title_en: 'Issued by Noble Limited', text_de: 'EUROPAN wird von Noble Private Capital Ltd (handelnd als „Noble Limited") herausgegeben und verwaltet, eingetragen in Neuseeland. Alle Guthaben, Transaktionen und Gutschriften laufen über die Noble-Plattform.', text_en: 'EUROPAN is issued and managed by Noble Private Capital Ltd (trading as "Noble Limited"), registered in New Zealand. All balances, transactions and credits are handled through the Noble platform.' },
     { title_de: 'Fester Kurs 1:1 — 1,00 € = 1 EP', title_en: 'Fixed 1:1 Rate — €1.00 = 1 EP', text_de: 'Keine Spekulation, keine Kursschwankungen, keine Gas Fees. EUROPAN ist fest an 1,00 € gebunden. Eine stabile private Währung für stabilen privaten Wert.', text_en: 'No speculation, no volatility, no gas fees. EUROPAN is pegged at €1.00. A stable private currency for stable private value.' },
-    { title_de: 'Nicht öffentlich gehandelt', title_en: 'Not Publicly Traded', text_de: 'EUROPAN ist an keiner Börse notiert. Seine Stabilität ergibt sich gerade aus dem geschlossenen Netzwerkcharakter — verfügbar nur für Noble-Mitglieder.', text_en: 'EUROPAN is not listed on any exchange. Its stability comes precisely from its closed-network character — available only to Noble members.' },
+    { title_de: 'Nicht öffentlich gehandelt', title_en: 'Not Publicly Traded', text_de: 'EUROPAN ist an keiner Börse notiert. Seine Stabilität ergibt sich gerade aus dem geschlossenen Netzwerkcharakter — es wird nur innerhalb des Netzwerks eingesetzt.', text_en: 'EUROPAN is not listed on any exchange. Its stability comes precisely from its closed-network character — it is used only within the network.' },
     { title_de: 'Zahlungen abgesichert über Stripe', title_en: 'Stripe-Secured Payments', text_de: 'Kartenkäufe laufen über Stripe, PCI-DSS-konform. Ihre Kartendaten werden niemals auf unseren Servern gespeichert.', text_en: 'Card purchases use Stripe, PCI-DSS compliant. Your card data is never stored on our servers.' },
     { title_de: 'Shop-integrierter Bonus', title_en: 'Shop-Integrated Bonus', text_de: 'EUROPAN ist die einzige Noble-Währung mit direkter Bonus-Integration auf shop.pan21.com — Sie erhalten EP bei jedem Kauf.', text_en: 'EUROPAN is the only Noble currency with a direct bonus integration on shop.pan21.com — earning you EP on every purchase.' },
-    { title_de: 'API-gestützte Guthaben', title_en: 'API-Backed Balances', text_de: 'Jedes EP-Guthaben wird in der Noble-Limited-Plattform geführt, 24/7 über Ihr sicheres Mitglieder-Dashboard einsehbar. Vollständig nachvollziehbar.', text_en: 'Every EP balance is maintained in the Noble Limited platform, accessible 24/7 via your secure member dashboard. Fully auditable.' },
+    { title_de: 'API-gestützte Guthaben', title_en: 'API-Backed Balances', text_de: 'Jedes EP-Guthaben wird in der Noble-Limited-Plattform geführt, 24/7 über Ihr sicheres EUROPAN-Konto einsehbar. Vollständig nachvollziehbar.', text_en: 'Every EP balance is maintained in the Noble Limited platform, accessible 24/7 via your secure EUROPAN account. Fully auditable.' },
   ]
 
   
@@ -116,8 +116,8 @@ return (
               <span className="en-content">EUROPAN —<br /><em>The European</em><br />Private Currency</span>
             </h1>
             <p className="hero-sub">
-              <span className="de-content">EUROPAN (EP) ist die private europäische Digitalwährung des Noble-Netzwerks. Stabil, nur für Mitglieder, und einzigartig verbunden mit dem PAN21-Shop-Bonussystem. Kauf per Kreditkarte oder Überweisung.</span>
-              <span className="en-content">EUROPAN (EP) is the private European digital currency of the Noble network. Stable, members-only, and uniquely linked to the PAN21 Shop bonus system. Buy with credit card or bank transfer.</span>
+              <span className="de-content">EUROPAN (EP) ist die private europäische Digitalwährung des Noble-Netzwerks. Stabil, privat und einzigartig verbunden mit dem PAN21-Shop-Bonussystem. Kauf per Kreditkarte oder Überweisung.</span>
+              <span className="en-content">EUROPAN (EP) is the private European digital currency of the Noble network. Stable, private, and uniquely linked to the PAN21 Shop bonus system. Buy with credit card or bank transfer.</span>
             </p>
             <div className="hero-actions">
               <Link href="/buy" className="btn-green-lg"><span className="de-content">EUROPAN kaufen →</span><span className="en-content">Buy EUROPAN →</span></Link>
@@ -167,16 +167,16 @@ return (
             </h2>
             <div className="green-rule" />
             <p>
-              <span className="de-content">EUROPAN (EP) ist die private europäische Nutzwährung des Investmentnetzwerks von Noble Limited. Nicht an einer öffentlichen Börse gehandelt, nicht spekulativ — eine stabile private Digitalwährung für verifizierte Noble-Mitglieder.</span>
-              <span className="en-content">EUROPAN (EP) is the private European utility currency of Noble Limited's investment network. Not traded on any public exchange, not speculative — a stable private digital currency for verified Noble members.</span>
+              <span className="de-content">EUROPAN (EP) ist die private europäische Nutzwährung des Investmentnetzwerks von Noble Limited. Nicht an einer öffentlichen Börse gehandelt, nicht spekulativ — eine stabile private Digitalwährung für dieses Netzwerk.</span>
+              <span className="en-content">EUROPAN (EP) is the private European utility currency of Noble Limited's investment network. Not traded on any public exchange, not speculative — a stable private digital currency for this network.</span>
             </p>
             <p style={{ marginTop: '1rem' }}>
               <span className="de-content">Was EUROPAN unter den vier Noble-Währungen einzigartig macht, ist die direkte Verbindung zum PAN21-Shop: Jeder Kauf auf shop.pan21.com bringt Ihnen EUROPAN — und die Zahlung mit EUROPAN aktiviert den Doppel-Wums-Bonus von 5% zurück.</span>
               <span className="en-content">What makes EUROPAN unique among the four Noble currencies is its direct connection to the PAN21 Shop: every purchase on shop.pan21.com earns you EUROPAN — and paying with EUROPAN activates the Doppel-Wums bonus of 5% back.</span>
             </p>
             <p style={{ marginTop: '1rem' }}>
-              <span className="de-content">Noble-Mitglieder halten EUROPAN neben N-Coin, SwissyCash und CryptoCoin in ihrem privaten Noble-Dashboard.</span>
-              <span className="en-content">Noble members hold EUROPAN alongside N-Coin, SwissyCash and CryptoCoin in their private Noble dashboard.</span>
+              <span className="de-content">Ihr Guthaben sehen Sie jederzeit in Ihrem EUROPAN-Konto. Wer zusätzlich Noble-Mitglied ist, hält EUROPAN neben N-Coin, SwissyCash und CryptoCoin im Noble-Dashboard.</span>
+              <span className="en-content">You can see your balance any time in your EUROPAN account. If you are also a Noble member, you hold EUROPAN alongside N-Coin, SwissyCash and CryptoCoin in the Noble dashboard.</span>
             </p>
             <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/buy" className="btn-green"><span className="de-content">EUROPAN kaufen →</span><span className="en-content">Buy EUROPAN →</span></Link>

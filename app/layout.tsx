@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | EUROPAN',
   },
   description:
-    'EUROPAN (EP) is the European private digital currency of the Noble Limited network. Buy EUROPAN with credit card up to €1,000 or via bank transfer. A stable, members-only virtual currency for Noble members across Europe.',
+    'EUROPAN (EP) is the European private digital currency of the Noble Limited network. Buy EUROPAN with credit card up to €1,000 or via bank transfer. A stable private virtual currency for the Noble and PAN21 network.',
   keywords: [
     'EUROPAN', 'EP', 'europan.group', 'EUROPAN kaufen', 'private digital currency Europe',
     'cryptocurrency', 'crypto', 'digital currency', 'virtual currency', 'private cryptocurrency',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: 'https://www.europan.group/',
     siteName: 'EUROPAN',
     title: 'EUROPAN (EP) — The European Private Digital Currency',
-    description: 'Buy EUROPAN (EP) — the private European digital currency of the Noble network. Stable, secure, members only.',
+    description: 'Buy EUROPAN (EP) — the private European digital currency of the Noble network. Stable and secure.',
     locale: 'en_GB',
   },
   robots: { index: true, follow: true },
