@@ -26,7 +26,7 @@ export default function InternetStadtPage() {
   const [session, setSession] = useState<{ email: string; token: string } | null>(null)
 
   useEffect(() => {
-    const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
+    const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
     ;(window as any).setLang?.(l)
 
     // Reuse a previously verified session if it's still fresh (localStorage doesn't

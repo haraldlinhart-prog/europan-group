@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 export default function LegalShell({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
+    const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
     ;(window as any).setLang?.(l)
   }, [])
 

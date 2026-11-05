@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     fetch('/api/rate').then(r => r.json()).then(d => setRate(d.rate || EP_RATE)).catch(() => {})
     setFormstart(Date.now())
-    const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
+    const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
     ;(window as any).setLang?.(l)
   }, [])
 

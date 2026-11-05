@@ -69,7 +69,7 @@ const FAQS: Faq[] = [
 
 export default function FaqPage() {
   useEffect(() => {
-    const l = document.documentElement.classList.contains('en') ? 'en' : 'de'
+    const l = (window as any).__europanLang === 'en' ? 'en' : 'de'
     ;(window as any).setLang?.(l)
 
     const hash = window.location.hash.replace('#', '')
