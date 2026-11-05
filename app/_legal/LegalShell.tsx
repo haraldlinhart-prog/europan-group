@@ -16,6 +16,8 @@ export default function LegalShell({ children }: { children: React.ReactNode }) 
         <div className="nav-inner">
           <Link href="/" className="nav-logo">)( EUROPAN</Link>
           <div className="nav-actions">
+            {/* suchmaschinen.pro:blog-link */}
+            <SuchmaschinenBlogLink className="de-content nav-account" />
             <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
@@ -23,8 +25,6 @@ export default function LegalShell({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </div>
-        {/* suchmaschinen.pro:blog-link */}
-        <SuchmaschinenBlogLink />
       </nav>
 
       <main className="legal-page">{children}</main>
