@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { NavAccountLink } from '../_account/AccountLink'
 
 export default function LegalShell({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -14,6 +15,7 @@ export default function LegalShell({ children }: { children: React.ReactNode }) 
         <div className="nav-inner">
           <Link href="/" className="nav-logo">)( EUROPAN</Link>
           <div className="nav-actions">
+            <NavAccountLink />
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
               <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>

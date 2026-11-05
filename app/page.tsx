@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import AccountLink, { NavAccountLink } from './_account/AccountLink'
 import './home.css'
 
 const EP_RATE = 1.00
@@ -56,7 +57,7 @@ export default function HomePage() {
   const howSteps = [
     { title_de: 'Betrag wählen', title_en: 'Choose your amount', desc_de: 'Bis zu 1.000 € per Kreditkarte — sofortige Gutschrift. Darüber per Banküberweisung an Noble Private Capital Limited in Hongkong.', desc_en: 'Up to €1,000 by credit card — instant delivery. Above €1,000 by bank transfer to Noble Private Capital Limited in Hong Kong.' },
     { title_de: 'Sicher bezahlen', title_en: 'Pay securely', desc_de: 'Kartenzahlungen über Stripe (Visa, Mastercard, Amex, Apple Pay). Bei Überweisungen bitte Ihre EUROPAN-Konto-E-Mail als Verwendungszweck angeben.', desc_en: 'Card payments via Stripe (Visa, Mastercard, Amex, Apple Pay). Bank transfers reference your EUROPAN account email for identification.' },
-    { title_de: 'EUROPAN erhalten', title_en: 'Receive EUROPAN', desc_de: 'Ihr EP-Guthaben wird automatisch Ihrem Noble-Limited-Dashboard gutgeschrieben. Kartenzahlungen sofort — Überweisungen innerhalb von 1–3 Werktagen.', desc_en: 'Your EP balance is credited to your Noble Limited dashboard automatically. Card orders are instant — bank transfers within 1–3 business days.' },
+    { title_de: 'EUROPAN erhalten', title_en: 'Receive EUROPAN', desc_de: 'Ihr EP-Guthaben wird Ihrem EUROPAN-Konto gutgeschrieben. Kartenzahlungen sofort — Überweisungen innerhalb von 1–3 Werktagen.', desc_en: 'Your EP balance is credited to your EUROPAN account. Card orders are instant — bank transfers within 1–3 business days.', link_de: 'Zum Konto →', link_en: 'Go to your account →' },
     { title_de: 'Im Netzwerk & Shop einsetzen', title_en: 'Use in the network & shop', desc_de: 'Auf shop.pan21.com mit EP für den Doppel-Wums-Bonus bezahlen, an Noble-Mitglieder überweisen oder als stabilen privaten Wertspeicher ansammeln.', desc_en: 'Pay on shop.pan21.com with EP for the Doppel-Wums bonus, transfer to Noble members, or accumulate as a stable private store of value.' },
   ]
 
@@ -92,6 +93,7 @@ return (
             <li><Link href="/faq">FAQ</Link></li>
           </ul>
           <div className="nav-actions">
+            <NavAccountLink />
             <Link href="/buy" className="btn-green"><span className="de-content">EUROPAN kaufen</span><span className="en-content">Buy EUROPAN</span></Link>
             <div className="lang-switch">
               <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
@@ -243,6 +245,11 @@ return (
                   <div>
                     <h3 className="how-title"><span className="de-content">{s.title_de}</span><span className="en-content">{s.title_en}</span></h3>
                     <p className="how-desc"><span className="de-content">{s.desc_de}</span><span className="en-content">{s.desc_en}</span></p>
+                    {s.link_de && s.link_en && (
+                      <p className="how-desc" style={{ marginTop: '0.4rem' }}>
+                        <AccountLink de={s.link_de} en={s.link_en} style={{ color: 'var(--green)', fontWeight: 600 }} />
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}

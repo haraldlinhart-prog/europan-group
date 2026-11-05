@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import LegalFooter from '../../_legal/LegalLinks'
+import { NavAccountLink } from '../../_account/AccountLink'
 import '../../home.css'
 
 type Offer = {
@@ -86,9 +87,12 @@ export default function InternetStadtPage() {
           <Link href="/" className="nav-logo">
             <img src="/europan-logo-header.png" alt="EUROPAN" style={{ height: '30px', width: 'auto', filter: 'invert(1)' }} />
           </Link>
-          <div className="lang-switch">
-            <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
-            <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
+          <div className="nav-actions">
+            <NavAccountLink />
+            <div className="lang-switch">
+              <button data-lang-btn="de" className="active" onClick={() => (window as any).setLang('de')}>DE</button>
+              <button data-lang-btn="en" onClick={() => (window as any).setLang('en')}>EN</button>
+            </div>
           </div>
         </div>
       </nav>
